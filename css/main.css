@@ -93,22 +93,138 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/* Logo */
+@font-face {
+	font-family: 'Fredoka One';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Fredoka One'), local('Fredoka One'), url(../fonts/FredokaOne-Regular.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Patua One';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Patua One'), local('Patua One'), url(../fonts/PatuaOne-Regular.ttf) format('truetype');
+}
+
+img.bg {
+	/* Set rules to fill background */
+	min-height: 100%;
+	min-width: 1280px;
+	
+	/* Set up proportionate scaling */
+	width: 100%;
+	height: auto;
+	
+	/* Set up positioning */
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+	img.bg {
+		left: 50%;
+		margin-left: -512px;   /* 50% */
+	}
+}
+
+.cloud {
+	position: fixed;
+	width: 100px;
+	height: 50px;
+	background-repeat: no-repeat;
+	z-index: 0;
+	background-image: url(../img/cloud.png);
+}
+
+.cloud1 { background: url(../img/cloud.png) no-repeat -100px 0px; }
+.cloud2 { background: url(../img/cloud.png) no-repeat -100px -50px; }
+.cloud3 { background: url(../img/cloud.png) no-repeat 0px 0px; }
+.cloud4 { background: url(../img/cloud.png) no-repeat 0px -50px; }
+
+.troposphere {
+	z-index: 1;
+	position: relative;
+}
+
 .wrapper {
-	margin: 0 auto;
+	position: absolute;
+
 	width: 960px;
+	left: 50%; margin-left: -480px;
+	top: 20%;
+
+	z-index: 2;
+}
+
+.logo {
+	z-index: 2;
+	position: absolute;
+	text-shadow: 0 0 5px black;
+
+}
+
+.message {
+	text-align: right;
+	padding: 100px;
+	color: white;
+	text-shadow: 0 0 5px black;
+	cursor: default;
+}
+
+.message .high {
+	z-index: 3;
+	position: relative;
+	lsetter-spacing: -10px;
+	text-transform: none !important;
+	font: bold 125px/70px 'Patua One';
+}
+
+.message .fine-print {
+	z-index: 2;
+	margin-top: 40px;
+	font: 25px/30px 'Patua One';
+	position: relative;
 }
 
 
+footer {
+	position: absolute;
+	width: 960px;
+	margin-left: -480px;
+	left: 50%;
+	bottom: 20px;
+	text-rendering: optimizeLegibility;
+}
 
+footer {
+	margin-right: 10px;
+	text-align: center;
+	font: 12px 'Patua One';
+	float: right;
+	color: white;
+}
 
+footer #id {
+	text-shadow: 0 0 3px rgba(0, 0, 0, 1);
+	font-size: 20px;
+}
 
+.wrapper a,
+footer a {
+	color: #29F !important;
+	text-decoration: none;
+	font-weight: bold;
+}
 
-
-
-
-
-
-
+.wrapper a:hover,
+footer a:hover {
+	color: white !important;
+	text-decoration: underline;
+}
 
 /* ==========================================================================
    Helper classes
