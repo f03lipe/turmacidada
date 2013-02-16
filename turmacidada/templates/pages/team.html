@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load cms_tags sekizai_tags custom_template_tags %}
+
+{% block content %}
+
+	{% addtoblock "css" %}
+	<style>
+
+		.team-member {
+			display: inline-block;
+			margin-bottom: 20px;
+			margin-right: -4px;
+
+			width: 450px;
+			padding: 10px;
+			background: white;
+			box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+		}
+		.team-member:nth-child(odd) { margin-right: 17px; }
+
+		.team-member .member-info {
+			display: inline-block;
+			vertical-align: top;
+			padding: 10px;
+			width: 280px;
+			cursor: default;
+		}
+
+		.team-member .member-info h3,
+		.team-member .member-info h4,
+		.team-member .member-info h5 {
+			font-family: MuseoSans, "Helvetica Nue", Helvetica, Arial, sans-serif;
+			font-weight: normal;
+			margin: 5px 0 0 5px;
+		}
+
+		.team-member img {
+			box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+		}
+
+	</style>
+	{% endaddtoblock %}
+
+	<div class="container below-nav">
+		<div class="box">
+			<div class="page-text text-plugin">
+				{% placeholder "TextoIntrodutorio" %}
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		{% loadModelObjects "TeamMember" as teammember %}
+		{% for person in teammember|order_by:'member_since' %}
+		<div class="team-member">
+			<img src="{{ MEDIA_URL }}{{ person.avatar }}" "http://placehold.it/140x185.png" />
+			<div class="member-info">
+				<h4>{{ person.name }}</h4>
+				<h4>{{ person.age }}</h4>
+				<h4>{{ person.job }}</h4>
+				<h5>{{ person.bio }}</h5>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

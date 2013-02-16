@@ -1,0 +1,12 @@
+{% load cms_tags sekizai_tags custom_template_tags %}
+
+<h4 style="font-family: 'MuseoSans'; text-transform: uppercase; margin-bottom: 10px; cursor: default">team member:</h4>
+<div class="clearfix" style="cursor: pointer" onClick="location.href='{% page_url 'team' %}'">
+	<div class="thumb" style="float: left">
+		<img style="box-shadow: 0 0 5px rgba(0, 0, 0, .6);" src="{{ MEDIA_URL }}{{ object.avatar.url }}" />
+	</div>
+	<div class="" style="float: left; margin-left: 20px; width: 400px">
+		<h2>{{ object.name }}</h2>
+		<div class="">{{ object.bio }}</div>
+	</div>
+</div>

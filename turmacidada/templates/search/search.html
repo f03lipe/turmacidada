@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load cms_tags sekizai_tags custom_template_tags %}
+
+
+{% block content %}
+{% addtoblock "css" %}
+<style>
+
+	.content form h5 {
+		margin-bottom: 5px;
+	}
+
+	.content form .btn {
+		font-weight: bold;
+	}
+
+	.content .form-search input {
+		border-radius 0;
+		box-shadow: none !important;
+		sborder: 1px solid white;
+	}
+
+</style>
+{% endaddtoblock %}
+<div class="container below-nav">
+	<div class="box fullwidth padding40">
+	<form class="form-search horizontal" method="get" action="/search">
+		<h2>Search</h2><h5>our projects and team members</h5>
+		
+		<div class="input-append">
+			<input class="form-search" name="q" type="text" />
+			<input type="submit" class="btn btn-info" value="Search">
+		</div>
+
+	</form>
+
+	{% if query %}
+	</div>
+		{% for result in page.object_list %}
+			<div class="box padding20" style="width: 700px; float: right;">
+				{{ result.rendered|safe }}
+			</div>
+		{% empty %}
+			<div class="box fullwidth padding20">
+				<h3>No results found.</h3>
+			</div>
+		{% endfor %}
+
+	{% else %}
+	</div>
+	{% endif %}
+
+</div>
+{% endblock %}

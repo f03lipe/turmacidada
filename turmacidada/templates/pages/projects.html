@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load cms_tags sekizai_tags custom_template_tags %}
+
+{% block content %}
+
+	{% addtoblock "css" %}
+	<style>	
+
+		.project-item {
+			display: inline-block;
+			margin-bottom: 20px;
+			margin-right: -4px;
+
+			width: 960px;
+			background: white;
+			box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+
+		}
+
+		.project-item .project-info-wrapper {
+			display: inline-block;
+			width: 320px;
+			height: 300px;
+			float: left;
+
+			box-shadow: -2px 0 2px rgba(0, 0, 0, .2);
+		}
+
+		.project-item img {
+			float: left;
+			cursor: pointer;
+		}
+
+		.project-item .project-info {
+			padding: 15px;
+			cursor: default;
+			color: #555;
+		}
+
+			.project-item .project-info h3,
+			.project-item .project-info h4,
+			.project-item .project-info h5 {
+				display: inline;
+				font-weight: normal;
+				font-family: "Patua One";
+			}
+
+			.project-item .project-info a {
+				font: 15px "Patua One";
+				text-decoration: none !important;
+			}
+
+			.project-item .field {
+				text-align: justify;
+				margin-top: 5px;
+			}
+
+
+	</style>
+	{% endaddtoblock %}
+
+	<div class="container below-nav" style="msargin-top: -1px">
+		<div class="box" style="border-width: 0px; box-shadow: 0 0 5px rgba(0, 0, 0, .3);">
+			<div class="page-text text-plugin">
+				{% placeholder "TextoIntrodutorio" %}
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		{% loadModelObjects "ProjectItem" as projectitem %}
+		{% for project in projectitem|order_by:'-birth_date' %}
+		
+			<div class="project-item clearfix">
+				{% if project.banner %}
+					<img src="{{ MEDIA_URL }}{{ project.banner }}" onClick="window.open('{{ project.link }}')"/>
+				{% else %}
+					<img src="http://placehold.it/640x300.png" "{{ MEDIA_URL }}{{ project.banner }}" onClick="window.open('{{ project.link }}')"/>
+				{% endif %}
+
+				<div class="project-info-wrapper">
+					<div class="project-info">
+						<h3>{{ project.name }}</h3>
+						<div class="field"><h4>início:</h4> {{ project.birth_date }}</div>
+						<div class="field"><h4>proposta:</h4> {{ project.description }}</div>
+						<div class="field"><h4>link:</h4> <a href="{{ project.link }}">{{ project.link }}</a></div>
+					</div>
+				</div>
+			</div>
+
+		{% endfor %}
+	</div>
+
+{% endblock %}

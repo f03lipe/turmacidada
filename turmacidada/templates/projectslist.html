@@ -1,0 +1,27 @@
+{% load cms_tags sekizai_tags custom_template_tags %}
+
+<div class="container">
+
+	<div class="box projects fullwidth">
+		<div class="box-title">
+			Conheça alguns de nossos projetos
+		</div>
+		
+		{% loadModelObjects "ProjectItem" as projectslist_items %}
+		{% for pitem in projectslist_items|order_by:'?' %}
+			
+			<li class="item">
+				<img
+					onClick="window.location.href='{{ pitem.link }}'" src="{{ MEDIA_URL }}{{ pitem.thumbnail }}"
+					rel="tooltip" data-placement="top" data-title="Projeto: {{ pitem.name }}" data-content="{{ pitem.small_desc }}"
+				/>
+			</li>
+
+		{% endfor %}
+
+		<script>
+		// $('.projects .item img').popover();
+		</script>
+	</div>
+
+</div>

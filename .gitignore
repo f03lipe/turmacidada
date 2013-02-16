@@ -1,0 +1,14 @@
+
+venv/
+src/
+gh-pages
+*.sqlite
+
+turmacidada/media
+turmacidada/website/migrations
+turmacidada/settings/keys.py*
+turmacidada/whoosh_index
+
+
+*.pyc
+*~

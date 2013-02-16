@@ -1,0 +1,79 @@
+{% load cms_tags menu_tags sekizai_tags custom_template_tags thumbnail i18n %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'> 
+	<title>Turma Cidadã</title>
+
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
+	<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico"></link>
+	
+	{% render_block "css" %}
+
+	<script type="text/javascript" src="{{ STATIC_URL }}jquery.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}base.js"></script>
+	<script type="text/javascript" type="image/png" src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+	<style>
+		.wrapper {
+			position: relative;
+			width: 720px;
+			margin: 0 auto;
+			top: 150px;
+			height: 500px;
+			sborder: 1px solid red;
+		}
+
+		.fleft, .fright {
+			color: white;
+			height: 250px;
+			letter-spacing: -5px;
+			cursor: default;
+			text-shadow: 0 0 10px rgba(0, 0, 0, .6);
+		}
+
+		.fleft { float: left; }
+		.fright { float: right; }
+
+		.t404 {
+			font: 200px "Patua One";
+		}
+
+		.text {
+			font: bold 100px/70px "Patua One";
+			margin-top: 55px;
+		}
+
+		.description {
+			text-shadow: 0 0 5px rgba(0, 0, 0, .4);
+			color: white;
+			font: bold 24px "Patua One";
+		}
+	</style>
+</head>
+<body>
+	{% getBackgroundImage as bg %}
+	<img src="{{ MEDIA_URL }}{{ bg.file }}" class="bg" />	
+	
+	<div class="container">
+	</div>
+
+	<div class="wrapper">
+		<div class="fleft">
+			<div class="t404">404</div>
+		</div>
+		<div class="fright">
+			<div class="text">Page Not <br> Found</div>
+		</div>
+		<div class="description">
+			We couldn't the page you were looking for. =/
+			<br>But, hey, have some fun playing with the clouds...
+			<h4><a style="color: white" href="/">or click here to go back</a></h4>
+		</div>
+	</div>
+	
+	<div id='troposphere'></div>
+
+</body>
+</html>

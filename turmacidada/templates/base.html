@@ -1,0 +1,63 @@
+{% load cms_tags menu_tags sekizai_tags custom_template_tags thumbnail %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'> 
+	<title>Turma Cidadã</title>
+
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
+	<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico"></link>
+	
+	{% render_block "css" %}
+
+	<script type="text/javascript" src="{{ STATIC_URL }}jquery.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}base.js"></script>
+	<script type="text/javascript" type="image/png" src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+	{% getBackgroundImage as bg %}
+	<img src="{{ MEDIA_URL }}{{ bg.file }}" class="bg"></img>	
+
+	<header class="{{ bg.header_color }}">
+		<div class="logo" onClick="location.href='/'">
+			<img src="{{ STATIC_URL }}images/logo.png" width=150 height=150/> 
+			<div class="name">Turma<br>Cidadã</div>
+		</div>
+
+		<div class="slogan">
+			Integrando Comunidades <!-- Empowering the Comunity -->
+		</div>
+
+		<div class="social-btns">
+			<a href="{{ sn.facebook }}" class="sprite-Facebook"></a>
+			<a href="{{ sn.vimeo }}" class="sprite-Vimeo"></a>
+			<a href="{{ sn.twitter }}" class="sprite-Twitter"></a>
+			<a href="{{ sn.flickr }}" class="sprite-Flickr"></a>
+			<a href="{{ sn.rss }}" class="sprite-Rss"></a>
+		</div>
+
+		<div class="upper-line">
+			{% language_chooser "language_chooser.html" %}
+			<form class="search" method="get" action="/search">
+				<input class="form-search" name="q" type="text" />
+				<i class="icon-search" onClick="$('form.search').submit()"></i>
+			</form>
+		</div>
+
+		<nav>
+			{% show_menu 1 %}
+		</nav>
+	</header>
+	
+	<div class="content">
+		{% block content %}{% endblock %}
+	</div>
+
+	{% include "projectslist.html" %}
+	{% include "footer.html" %}
+	{% render_block "js" %}
+
+</body>
+</html>

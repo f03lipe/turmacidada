@@ -1,0 +1,11 @@
+
+<h4 style="font-family: 'MuseoSans'; text-transform: uppercase; margin-bottom: 10px; cursor: default">project:</h4>
+<div class="clearfix" style="cursor: pointer" onClick="location.href='{{ object.link }}'">
+	<div class="thumb" style="float: left">
+		<img style="box-shadow: 0 0 5px rgba(0, 0, 0, .6);" src="{{ MEDIA_URL }}{{ object.thumbnail.url }}" />
+	</div>
+	<div class="" style="float: left; margin-left: 20px; width: 400px">
+		<h2>{{ object.name }}</h2>
+		<div class="">{{ object.small_desc }}</div>
+	</div>
+</div>
