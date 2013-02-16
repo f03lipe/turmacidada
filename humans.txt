@@ -3,11 +3,13 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Felipe Aragão Pires
+    UI developer, programmer
+    @f03lipe
 
 # THANKS
 
-    <name>
+    OpenSource
 
 # TECHNOLOGY COLOPHON
 
