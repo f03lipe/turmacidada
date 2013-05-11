@@ -1,14 +1,32 @@
 {% load cms_tags menu_tags sekizai_tags custom_template_tags thumbnail %}
 
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset='utf-8'> 
-	<title>Turma Cidadã</title>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Turma Cidadã</title>
+		<meta name="description" content="A TurmaCidadã desenvolve e apoia projetos sustentáveis voltados para a comunidada, promovendo o desenvolvimento 'socio-pessoa-ambiental'.">
+		<meta name="keywords" content="Turma Cidadã, Turmacidada, ONG, CEFET, cidadania, sustenstabilidade, maracanã, rio de janeiro. Brasil, Silvino Netto, Felipe Aragão Pires, socio-pessoa-ambiental,desenvolvimento,Centro Federal de Educação Tecnológica Celso Suckow da Fonseca, palestra, video, região serrana, mutirão solidário">
+		<meta name="viewport" content="width=device-width">
 
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
-	<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico"></link>
+		<meta property="og:url" content="http://turmacidada.org/" />
+		<meta property="og:site_name" content="Turma Cidadã" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="TurmaCidadã" />
+		<meta property="og:image" content="http://turmacidada.herokuapp.com/static/images/logo.png" />
+		<meta property="og:description" content="A TurmaCidadã desenvolve e apoia projetos sustentáveis voltados para a comunidada, promovendo o desenvolvimento 'socio-pessoa-ambiental'" />
+		<meta property="fb:app_id" content="7363627862327638" />
+
+		<meta name="author" content="Felipe Aragão Pires">
+		<link rel="author" href="http://twitter.com/f03lipe"><span style="display: none">Felipe Aragão Pires</span></link>
+
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
+		<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico"></link>
 	
 	{% render_block "css" %}
 
@@ -18,7 +36,7 @@
 </head>
 <body>
 	{% getBackgroundImage as bg %}
-	<img src="{{ MEDIA_URL }}{{ bg.file }}" class="bg"></img>	
+	<img src="{{ MEDIA_URL }}{{ bg.file }}" class="page-bg"></img>	
 
 	<header class="{{ bg.header_color }}">
 		<div class="logo" onClick="location.href='/'">

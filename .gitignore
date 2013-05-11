@@ -1,5 +1,7 @@
 
-venv/
+# To run on dev env, append this to venv/bin/activate
+# export DJANGO_SETTINGS_MODULE="myproject.settings.dev"
+
 src/
 gh-pages
 *.sqlite
