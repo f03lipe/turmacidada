@@ -1,0 +1,472 @@
+
+.fontface(@fontName, @weight)
+{
+	font-family: @fontName;
+	font-weight: @weight;
+	font-style: normal;
+	src: url("/static/fonts/@{fontName}-@{weight}.eot");
+	src:
+		url("/static/fonts/@{fontName}-@{weight}.ttf") format('truetype'),
+		url("/static/fonts/@{fontName}-@{weight}.woff") format('woff'),
+		url("/static/fonts/@{fontName}-@{weight}.eot?#iefix") format('embedded-opentype'),
+		url("/static/fonts/@{fontName}-@{weight}.svg#DistantGalaxyRegular") format('svg');
+}
+
+.user_select(@wut)
+{
+	-webkit-user-select: @wut;	/* Chrome all / Safari all */
+	-moz-user-select: @wut;		/* Firefox all */
+	-ms-user-select: @wut;		/* IE 10+ */
+	-o-user-select: @wut;
+	user-select: @wut;
+}
+
+.transition(@wut: all; @when)
+{
+	-webkit-transition: @wut @when;
+	-moz-transition: @wut @when;
+	-o-transition: @wut @when;
+	transition: @wut @when;
+}
+
+@CLOUD_BG: url("/static/images/cloud.png");
+
+@font-face { .fontface('FredokaOne', 400); }
+@font-face { .fontface('OpenSans', 400); }
+@font-face { .fontface('PatuaOne', 400); }
+@font-face { .fontface('GochiHand', 400); }
+@font-face { .fontface('MuseoSans', 400); }
+
+/******************************************************************************/
+/******************************************************************************/
+
+// BODY and GENERAL
+.container, header {
+	position: relative;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	*zoom: 1;
+	margin-top: 20px;
+	clear: both;
+}
+
+.container.below-nav {
+	margin-top: 0;
+}
+
+body {
+	text-rendering: geometricPrecision;
+	font-family: 'MuseoSans', 'Helvetica Nue', Helvetica, Arial, sans-serif;
+}
+
+
+// Specific to this particular image
+@media screen and (max-width: 1024px) {
+	.page-bg {
+		left: 50%;
+		margin-left: -512px;   /* 50% */
+	}
+}
+
+.plugin_googlemap {
+	margin: -20px; /* take full box */
+}
+
+h1, h2, h3, h4 {
+	font-family: 'PatuaOne';
+	font-weight: bold;
+}
+
+/******************************************************************************/
+/******************************************************************************/
+
+// PAGE CONTENT BOXES
+.box {
+	margin-top: 10px;
+	background: white;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .4);
+	position: relative;
+	z-index: 1;
+	display: table;
+
+	.container &:first-child {
+		margin-top: 0;
+	}
+	
+	&.border { border: 4px solid #AAA; }
+	&.semitransparent { background: rgba(255,255,255,.2); }
+	&.transparent { background: rgba(255,255,255,.0); }
+	&.padding20 { padding: 20px; }
+	&.padding40 { padding: 40px; }
+	&.fullwidth { width: 100%; }
+	
+	.page-text {
+		margin: 40px;
+		color: #444;
+		font: 14px MuseoSans, "Helvetica Nue", Helvetica, Arial, sans-serif;
+		line-height: 20px;
+	}
+
+	.box-title {
+		cursor: default;
+		background:  #2794E2;
+		color: white;
+		padding: 5px 15px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		font: 14px 'PatuaOne';
+	}
+}
+
+
+// PAGE BACKGROUND
+.page-bg {
+	// Set rules to fill background
+	min-height: 100%;
+	min-width: 1280px;
+	
+	// Set up proportionate scaling
+	width: 100%;
+	height: auto;
+	
+	// Set up positioning
+	position: fixed;
+	top: 0; left: 0;
+	z-index: -1;
+}
+
+
+// PAGE HEADER
+header {
+	margin-top: 40px;
+	position: relative;
+	cursor: default;
+
+	&.light {
+		.logo .name, .slogan {
+			color: white !important;
+		}
+	}
+
+	.logo {
+		display: table;
+		cursor: pointer;
+
+		img, .name {
+			display: inline-block;
+			.user_select(none);
+		}
+
+		.name {		
+			font: 47px/52px 'FredokaOne';
+			margin-left: 20px;
+			vertical-align: middle;
+			color: #444;
+		}
+	}
+	
+	.upper-line {
+		position: absolute;
+		top: 20px; right: 0px;
+	}
+
+	/* SEARCH */
+	form.search {
+		display: inline-block;
+	
+		input {
+			border-radius: 0;
+			box-shadow: none !important;
+			border: 1px solid white;
+		}
+
+		i {
+			cursor: pointer;
+			position: relative;
+			right: 25px;
+			margin-top: -5px;
+		}
+	}
+
+	/* SLOGAN */
+	.slogan {
+		font: bold 20px/20px 'GochiHand';
+		color: #666;
+		
+		position: relative;
+		bottom: 60px;
+		width: 300px;
+		text-align: right;
+		margin: 0 auto;
+		cursor: default;
+	}
+
+	/* SOCIAL BUTTONS */
+	.social-btns {
+		position: absolute;
+		bottom: 50px;
+		right: 0;
+	
+		a {
+			margin: 0 3px;
+			padding: 0px;
+			
+			background-color: transparent;
+			background-image: url(/static/images/sicons.png);
+			
+			display: inline-block;
+			border-width: 0px;
+			border-style: none;
+			vertical-align: middle;
+			
+			font: inherit;
+			color: blue;
+			opacity: 1;
+
+			.transition(all, 0.3s);
+		}
+
+		a:active {
+			border-width: 0px;
+			border-style: none;
+			outline: 0;
+			box-shadow: none;
+		}
+
+		.sprite-Facebook { background-position: 0 0; width: 48px; height: 48px; } 
+		.sprite-Flickr { background-position: 0 -53px; width: 48px; height: 48px; } 
+		.sprite-Rss { background-position: 0 -106px; width: 32px; height: 32px; } 
+		.sprite-Twitter { background-position: 0 -143px; width: 48px; height: 48px; } 
+		.sprite-Vimeo { background-position: 0 -196px; width: 48px; height: 48px; }
+	}
+
+
+	/* MENU */
+	nav {
+		position: absolute;
+		text-align: right;
+		bottom: 0; right: 0px;
+		list-style: none;
+		zs-index: 2;
+
+		li {
+			display: inline-block;
+			margin-right: -4px; /* compensate inline-block */
+			
+			a {
+				display: block;
+
+				background: #2794E2;
+				padding: 5px 15px;
+				margin-right: 2px;
+
+				color: white;
+				font: 15px 'PatuaOne';
+				text-decoration: none !important;
+				
+				.transition(all, 0.2s);
+			}
+
+			a:hover {
+				color: #666;
+				background: white;
+			}
+
+			&:last-child { margin-right: 0 !important; }
+			&:last-child a { margin-right: 0; }
+
+			&.selected a {
+				background: white;
+				color: #08C;
+			}
+		}
+
+	}
+}
+
+
+// PROJECTS EXPO
+.projects {
+	position: relative;
+	overflow: hidden;
+
+	li.item { list-style: none; }
+	.item {
+		display: inline-block;
+	}
+	.item img {
+		cursor: pointer;
+		.transition(all, 0.2s);
+	}
+	.item img:hover { box-shadow: 0 0 0 1px #777; }
+
+	img {
+		margin: 10px 0;
+		margin-left: 14px;
+	}
+
+	img:last-child {
+		margin-right: 0;
+	}
+}
+
+
+// HOVERING CLOUD
+.cloud {
+	position: fixed;
+	width: 100px;
+	height: 50px;
+	background-repeat: no-repeat;
+	z-index: 0;
+	background-image: @CLOUD_BG;
+
+	&.cloud1 { background: @CLOUD_BG no-repeat -100px 0px; }
+	&.cloud2 { background: @CLOUD_BG no-repeat -100px -50px; }
+	&.cloud3 { background: @CLOUD_BG no-repeat 0px 0px; }
+	&.cloud4 { background: @CLOUD_BG no-repeat 0px -50px; }
+}
+
+
+// FOOTER
+footer {
+	left: 0; right: 0;
+	width: 100% !important;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	z-index: 1;
+	position: relative;
+	
+	.links {
+		float: left;
+		letter-spacing: 1px;
+		font: 14px 'PatuaOne';
+		
+		a {
+			margin: 0 7px 0 7px;
+			text-decoration: none;
+		}
+	}
+
+	.links a:hover,
+	.info a:hover {
+		color: white;
+	}
+
+	.info {
+		margin-right: 10px;
+		text-align: right;
+		font: 12px 'PatuaOne';
+		float: right;
+		texst-shadow: 0 0 3px rgba(0, 0, 0, 1);
+		color: white;
+	}
+}
+
+
+// TEXT PLUGIN
+.text-plugin {
+
+	h1,	h2,	h3,	h4 {
+		letter-spacing: 1px;
+		font-family: 'PatuaOne';
+		font-weight: bold;
+	}
+
+	h1,	h2 {
+		color: #2794E2;
+	}
+
+	h1 {
+		font-size: 35px;
+		margin: 20px 0 20px 15px;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		font-size: 25px;
+		margin: 15px 0 15px 10px;
+	}
+
+	h3,	h4 {
+		font-family: 'PatuaOne';
+	}
+
+	p {
+		margin: 0; /* reset bootstrap */
+		text-indent: 2em;
+	}
+}
+
+
+// BOOTSTRAP EXTENSION
+.popover {
+
+	.popover-title {
+		font-family: 'PatuaOne';
+		letter-spacing: 1px;
+	}
+
+	.popover-inner {
+		background-color: white;
+		box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3) !important;
+	}
+
+	.arrow {
+		border-top-color: white !important;
+		border-left-color: transparent !important;
+		border-right-color: transparent !important;
+	}
+}
+
+
+// LANGUAGE SELECTOR
+.lang-selector {
+
+	&:hover .sdown {
+		display: run-in;
+	}
+
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: top;
+	cursor: pointer;
+	font-family: 'PatuaOne';
+	color: #444;
+	border: 1px solid white;
+	background: white;
+	.transition(all, 0.2s);
+	
+	div.current {
+		padding: 4px 9px;
+		display: inline-block;
+	}
+
+	i {
+		opacity: .8;
+		margin-top: 1px;
+		margin-right: -8px;
+		margin-left: 8px;
+	}
+
+	.sdown {
+		display: none;
+		margin-top: 3px;
+		margin-top: 3px;
+		text-align: right;
+		list-style-type: none
+	}
+
+	.sdown li {
+		padding: 2px 9px 4px 9px;
+		border-top: 1px dotted #DDD;
+		.transition(all, 0.2s);
+	}
+
+	.sdown li:hover {
+		background: #08C;
+		color: white;
+	}
+}
+
+

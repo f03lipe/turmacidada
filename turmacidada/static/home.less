@@ -1,0 +1,150 @@
+
+// CAROUSEL
+.carousel-wrapper {
+	width: 960px; /* 960px-10px for border */
+	height: 360px;
+	overflow: hidden;
+	position: relative;
+
+	cursor: pointer;
+	background: white;
+	
+	.carousel-inner {
+		position: relative;
+		
+		.item {
+			height: 360px;
+		}
+	}
+	
+	.slider {
+		position: absolute;
+		border-radius: 3px;
+		bottom: 10px; left: 10px;
+		
+		button {
+			outline: none;
+			position: relative;
+			background: #444;
+			box-shadow: none;
+			padding: 5px;
+			border: none;
+
+			-webkit-transition: all 0.2s;
+			-moz-transition: all 0.2s;
+			-o-transition: all 0.2s;
+			transition: all 0.2s;
+		}
+		
+		button[data-slide=prev]:hover {
+			right: 3px;
+		}
+
+		button[data-slide=next]:hover {
+			left: 3px;
+		}
+	}
+
+	.description {
+
+		&:hover {
+			opacity: 1;
+		}
+
+		text-align: justify;
+		position: absolute;
+
+		padding: 10px;
+		right: 0px; bottom: 50px;
+		width: 300px;
+		padding-right: 15px;
+		
+		color: white;
+		background: rgba(0, 0, 0, .5);
+		opacity: .8;
+		
+		-webkit-transition: all 0.5s;
+		-moz-transition: all 0.5s;
+		-o-transition: all 0.5s;
+		transition: all 0.5s;
+		
+		a {
+			color: #0BF;
+			font-weight: bold;
+		}
+		
+		.title {
+			font-weight: bold;
+			font-size: 15px;
+		}
+	}
+
+}
+
+
+// COLUMNS SETUP
+.columns {
+	clear: both;
+	width: 100%;
+	
+	.column-1 {
+		width: 540px;
+		float: left;
+		height: 100%;
+	}
+
+	.column-2 {
+		width: 410px;
+		float: right;
+	}
+
+	.column-1, .column-2 {
+		display: table;
+	}
+}
+
+
+// NEWS BOX
+.news {
+	.box-title a {
+		text-transform: lowercase;
+		color: white;
+	}
+
+	li {
+		list-style-type: none;
+		border-bottom: 1px dotted #ccc;
+		height: 50px;
+		height: auto;
+		display: table;
+		
+		.content {
+			&:hover {
+				opacity: 1;
+				-webkit-transition: all 0.2s;
+				-moz-transition: all 0.2s;
+				-o-transition: all 0.2s;
+				transition: all 0.2s;
+			}
+			margin: 10px 10px 0 10px; /* Leave bottom margin for child elements */
+			font-size: 13px;
+			opacity: .8;
+			display: display;
+			text-align: justify;
+			cursor: pointer;
+		}
+		
+		img.main-img { margin: 0 10px 10px 0; }
+		.text { margin-bottom: 10px; }
+
+		span.title {
+			font-weight: bold;
+			margin-right: 5px;
+		}
+
+		img {
+			float: left;
+			cursor: pointer;
+		}
+	}
+}
