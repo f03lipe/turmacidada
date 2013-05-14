@@ -28,7 +28,7 @@ except NameError:
 if environ.get('DEBUG') == 'False':
 	DEBUG = False
 else:
-	DEBUG = True
+	DEBUG = False
 
 # DEBUG = False
 TEMPLATE_DEBUG = True
