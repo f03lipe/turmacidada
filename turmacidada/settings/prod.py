@@ -18,6 +18,7 @@ DATABASES = {
 	'default': dj_database_url.config(),
 }
 
+CSRF_COOKIE_DOMAIN = '.turmacidada.us'
 
 ########## DATABASE CONFIGURATION
 # See: http://devcenter.heroku.com/articles/django#postgres_database_config
