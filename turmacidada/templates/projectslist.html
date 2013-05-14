@@ -8,7 +8,7 @@
 		</div>
 		
 		{% loadModelObjects "ProjectItem" as projectslist_items %}
-		{% for pitem in projectslist_items|order_by:'?' %}
+		{% for pitem in projectslist_items|order_by:'?'|slice:":5" %}
 			
 			<li class="item">
 				<img

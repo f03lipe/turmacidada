@@ -68,8 +68,8 @@ class ProjectItem(models.Model):
 	name = models.CharField(max_length=50)
 	small_desc = models.CharField(max_length=100, help_text='Write a small (max 100 chars) description of the project, for fast reading.')
 	description = models.TextField(max_length=400, help_text='The project description for the reader. Maximum of 400 characters.')
-	thumbnail = models.ImageField(upload_to=fileNameGenerator('projects/thumbnail_'))
-	banner = models.ImageField(upload_to=fileNameGenerator('projects/banner_'))
+	banner = models.ImageField(upload_to=fileNameGenerator('projects/banner_'), help_text='640x300px')
+	thumbnail = models.ImageField(upload_to=fileNameGenerator('projects/thumbnail_'), help_text='175x100px.')
 	link = models.URLField(help_text='The project\'s home url.')
 	birth_date = models.DateField()
 	

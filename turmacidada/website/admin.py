@@ -129,7 +129,7 @@ class ProjectItemAdmin(admin.ModelAdmin):
 	form = ProjectItemForm
 	fieldsets = (
 		(None, {
-			'fields': ('name', 'small_desc', 'birth_date', 'description', 'thumbnail', 'banner', 'link',),
+			'fields': ('name', 'small_desc', 'birth_date', 'description', 'banner', 'thumbnail', 'link',),
 			'description': ()
 		}),
 	)
