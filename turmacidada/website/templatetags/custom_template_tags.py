@@ -31,7 +31,6 @@ def getBackgroundImage(context):
 	import turmacidada.website.models as models
 	#context['request'].session['idBgImg'] = 232
 	try:
-		return None
 		idBg = context['request'].session.get('idBgImg')
 		try:
 			assert idBg
@@ -40,5 +39,5 @@ def getBackgroundImage(context):
 			bg = models.PageBackground.objects.filter(is_active=True).order_by('?')[0]
 			context['request'].session['idBgImg'] = bg.id
 			return bg
-	except IndexError: # No background pages
+	except: # No background pages
 		return None
