@@ -97,7 +97,7 @@ class PageBackground(models.Model):
 
 	file = models.ImageField(upload_to=fileNameGenerator('backgrounds/'))
 	date_added = models.DateField(auto_now_add=True)
-	is_active = models.BooleanField(default=True, help_text="The wallpaper will show up.")
+	is_active = models.NullBooleanField(default=True, null=True, help_text="The wallpaper will show up.")
 	header_color = models.CharField(max_length=20,
 		choices=(
 			('dark', 'dark header'),
