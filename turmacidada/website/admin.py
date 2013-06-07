@@ -166,13 +166,14 @@ class PageBackgroundForm(ModelForm):
 
 class PageBackgroundAdmin(admin.ModelAdmin):
 	form = PageBackgroundForm
-	list_display = ('file', 'header_color', 'date_added', sizeGetter('file'), thumbnailDisplayer('file'), 'is_active')
+	# list_display = ('file', 'header_color', 'date_added', sizeGetter('file'), thumbnailDisplayer('file'), 'is_active')
+	list_display = ('file', 'header_color', 'date_added', sizeGetter('file'), thumbnailDisplayer('file'))
+	# fieldsets = (
+	# 	(None, {
+	# 		'fields': (('file', 'is_active', 'header_color'),)
+	# 	}),
+	# )
 	ordering = ('-date_added',)
-	fieldsets = (
-		(None, {
-			'fields': (('file', 'is_active', 'header_color'),)
-		}),
-	)
 
 admin.site.register(CarouselItem, CarouselItemAdmin)
 admin.site.register(NewsFeedItem, NewsFeedItemAdmin)
