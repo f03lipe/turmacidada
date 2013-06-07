@@ -31,7 +31,6 @@ def getBackgroundImage(context):
 	import turmacidada.website.models as models
 	#context['request'].session['idBgImg'] = 232
 	try:
-		return None
 		idBg = context['request'].session.get('idBgImg')
 		try:
 			assert idBg

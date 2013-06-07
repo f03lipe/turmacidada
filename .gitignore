@@ -1,0 +1,17 @@
+
+# To run on dev env, append this to venv/bin/activate
+# export DJANGO_SETTINGS_MODULE="myproject.settings.dev"
+
+src/
+gh-pages
+*.sqlite
+venv/
+
+turmacidada/media/
+# turmacidada/website/migrations/
+turmacidada/settings/keys.py*
+turmacidada/whoosh_index/
+turmacidada/about
+
+*.pyc
+*~
