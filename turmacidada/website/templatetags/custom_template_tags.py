@@ -5,6 +5,7 @@ register = template.Library()
 
 # KEEP AWAY!
 # JUNKY CODE AHEAD!
+# I MEAN IT!
 
 @register.assignment_tag(takes_context=True)
 def loadModelObjects(context, format_string):
@@ -24,10 +25,19 @@ def filter(obj, arg):
 	# Filters objects from a manager object in the template.
 	return obj.filter(**eval('dict(%s)' % arg))
 
-@register.assignment_tag()
-def getBackgroundImage():
+@register.assignment_tag(takes_context=True)
+def getBackgroundImage(context):
+	# print dict(context['request'].session)
 	import turmacidada.website.models as models
+	#context['request'].session['idBgImg'] = 232
 	try:
-		return models.PageBackground.objects.order_by('?')[0]
+		idBg = context['request'].session.get('idBgImg')
+		try:
+			assert idBg
+			return models.PageBackground.objects.get(id=idBg)
+		except:
+			bg = models.PageBackground.objects.filter(is_active=True).order_by('?')[0]
+			context['request'].session['idBgImg'] = bg.id
+			return bg
 	except IndexError: # No background pages
 		return None

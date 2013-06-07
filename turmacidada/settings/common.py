@@ -25,8 +25,8 @@ except NameError:
 
 ########## DEBUG CONFIGURATION
 # Disable debugging by default.
-if environ.get('DEBUG') == 'False':
-	DEBUG = False
+if environ.get('DEBUG') == 'True':
+	DEBUG = True
 else:
 	DEBUG = False
 
