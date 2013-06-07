@@ -29,7 +29,7 @@ def filter(obj, arg):
 def getBackgroundImage(context):
 	# print dict(context['request'].session)
 	import turmacidada.website.models as models
-	# context['request'].session['idBgImg'] = 232
+	#context['request'].session['idBgImg'] = 232
 	try:
 		return None
 		idBg = context['request'].session.get('idBgImg')

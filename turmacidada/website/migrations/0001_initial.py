@@ -11,125 +11,64 @@ class Migration(SchemaMigration):
         # Adding model 'CarouselItem'
         db.create_table('website_carouselitem', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('title', self.gf('django.db.models.fields.CharField')(max_length=80, blank=True)),
-            ('description', self.gf('django.db.models.fields.TextField')(max_length=500, blank=True)),
+            ('title', self.gf('django.db.models.fields.CharField')(max_length=30)),
             ('link', self.gf('django.db.models.fields.URLField')(max_length=200)),
+            ('description', self.gf('django.db.models.fields.TextField')(max_length=500)),
             ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('is_published', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('date_added', self.gf('django.db.models.fields.DateField')(auto_now=True, blank=True)),
+            ('date_added', self.gf('django.db.models.fields.DateField')(auto_now_add=True, blank=True)),
+            ('plugin', self.gf('django.db.models.fields.related.ForeignKey')(related_name='carousel', to=orm['website.CarouselPlugin'])),
         ))
         db.send_create_signal('website', ['CarouselItem'])
 
-        # Adding model 'NewsFeedItem'
-        db.create_table('website_newsfeeditem', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('title', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('description', self.gf('django.db.models.fields.TextField')(max_length=350)),
-            ('thumbnail', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('date', self.gf('django.db.models.fields.DateField')()),
-            ('link', self.gf('django.db.models.fields.URLField')(max_length=200)),
+        # Adding model 'CarouselPlugin'
+        db.create_table('cmsplugin_carouselplugin', (
+            ('cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
         ))
-        db.send_create_signal('website', ['NewsFeedItem'])
-
-        # Adding model 'ProjectItem'
-        db.create_table('website_projectitem', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('small_desc', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('description', self.gf('django.db.models.fields.TextField')(max_length=400)),
-            ('banner', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('thumbnail', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('link', self.gf('django.db.models.fields.URLField')(max_length=200)),
-            ('birth_date', self.gf('django.db.models.fields.DateField')()),
-        ))
-        db.send_create_signal('website', ['ProjectItem'])
-
-        # Adding model 'TeamMember'
-        db.create_table('website_teammember', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('avatar', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('age', self.gf('django.db.models.fields.CharField')(max_length=20)),
-            ('job', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('member_since', self.gf('django.db.models.fields.DateField')(default=datetime.datetime(2007, 1, 1, 0, 0))),
-            ('bio', self.gf('django.db.models.fields.TextField')(max_length=240)),
-        ))
-        db.send_create_signal('website', ['TeamMember'])
-
-        # Adding model 'PageBackground'
-        db.create_table('website_pagebackground', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('file', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('date_added', self.gf('django.db.models.fields.DateField')(auto_now_add=True, blank=True)),
-            ('header_color', self.gf('django.db.models.fields.CharField')(default='dark', max_length=20)),
-        ))
-        db.send_create_signal('website', ['PageBackground'])
+        db.send_create_signal('website', ['CarouselPlugin'])
 
 
     def backwards(self, orm):
         # Deleting model 'CarouselItem'
         db.delete_table('website_carouselitem')
 
-        # Deleting model 'NewsFeedItem'
-        db.delete_table('website_newsfeeditem')
-
-        # Deleting model 'ProjectItem'
-        db.delete_table('website_projectitem')
-
-        # Deleting model 'TeamMember'
-        db.delete_table('website_teammember')
-
-        # Deleting model 'PageBackground'
-        db.delete_table('website_pagebackground')
+        # Deleting model 'CarouselPlugin'
+        db.delete_table('cmsplugin_carouselplugin')
 
 
     models = {
+        'cms.cmsplugin': {
+            'Meta': {'object_name': 'CMSPlugin'},
+            'creation_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'language': ('django.db.models.fields.CharField', [], {'max_length': '15', 'db_index': 'True'}),
+            'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'parent': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['cms.CMSPlugin']", 'null': 'True', 'blank': 'True'}),
+            'placeholder': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['cms.Placeholder']", 'null': 'True'}),
+            'plugin_type': ('django.db.models.fields.CharField', [], {'max_length': '50', 'db_index': 'True'}),
+            'position': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'})
+        },
+        'cms.placeholder': {
+            'Meta': {'object_name': 'Placeholder'},
+            'default_width': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'slot': ('django.db.models.fields.CharField', [], {'max_length': '50', 'db_index': 'True'})
+        },
         'website.carouselitem': {
             'Meta': {'object_name': 'CarouselItem'},
-            'date_added': ('django.db.models.fields.DateField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'description': ('django.db.models.fields.TextField', [], {'max_length': '500', 'blank': 'True'}),
+            'date_added': ('django.db.models.fields.DateField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'description': ('django.db.models.fields.TextField', [], {'max_length': '500'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
-            'is_published': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'link': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'})
+            'plugin': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'carousel'", 'to': "orm['website.CarouselPlugin']"}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '30'})
         },
-        'website.newsfeeditem': {
-            'Meta': {'object_name': 'NewsFeedItem'},
-            'date': ('django.db.models.fields.DateField', [], {}),
-            'description': ('django.db.models.fields.TextField', [], {'max_length': '350'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'link': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
-            'thumbnail': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '50'})
-        },
-        'website.pagebackground': {
-            'Meta': {'object_name': 'PageBackground'},
-            'date_added': ('django.db.models.fields.DateField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'file': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
-            'header_color': ('django.db.models.fields.CharField', [], {'default': "'dark'", 'max_length': '20'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
-        },
-        'website.projectitem': {
-            'Meta': {'object_name': 'ProjectItem'},
-            'banner': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
-            'birth_date': ('django.db.models.fields.DateField', [], {}),
-            'description': ('django.db.models.fields.TextField', [], {'max_length': '400'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'link': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'small_desc': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'thumbnail': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'})
-        },
-        'website.teammember': {
-            'Meta': {'object_name': 'TeamMember'},
-            'age': ('django.db.models.fields.CharField', [], {'max_length': '20'}),
-            'avatar': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
-            'bio': ('django.db.models.fields.TextField', [], {'max_length': '240'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'job': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'member_since': ('django.db.models.fields.DateField', [], {'default': 'datetime.datetime(2007, 1, 1, 0, 0)'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+        'website.carouselplugin': {
+            'Meta': {'object_name': 'CarouselPlugin', 'db_table': "'cmsplugin_carouselplugin'", '_ormbases': ['cms.CMSPlugin']},
+            'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'})
         }
     }
 

@@ -16,7 +16,6 @@ from urlparse import urlparse, uses_netloc
 ########## END EMAIL CONFIGURATION
 
 DEBUG = True
-print "oiiii"
 
 ########## DATABASE CONFIGURATION
 DATABASES = {
