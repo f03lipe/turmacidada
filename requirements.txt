@@ -17,9 +17,10 @@ django-filer==0.9.4
 django-menus==1.1.1
 django-mptt==0.5.2
 django-polymorphic==0.5
+django-s3-cache==1.2.1
 django-sekizai==0.7
 django-staticfiles==1.2.1
--e hg+https://bitbucket.org/f03lipe/django-storages@2b902460eb48ea99c4e67ff474088ea186e10ebd#egg=django_storages-dev
+django-storages==1.1.8
 easy-thumbnails==1.2
 html5lib==1.0b1
 newrelic==1.12.0.56
