@@ -16,6 +16,7 @@ INSTALLED_APPS = (
 
 # admin interface related apps
 INSTALLED_APPS += (
+	'django-menus',
 	'haystack',					# for search
 	'turmacidada',
 	'django.contrib.admin',
