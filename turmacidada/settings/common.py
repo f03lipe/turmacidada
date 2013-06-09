@@ -84,7 +84,7 @@ STATIC_ROOT = normpath(join(DJANGO_ROOT, 'static'))
 STATIC_URL = '/static/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+# ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files.
 STATICFILES_DIRS = (
@@ -117,15 +117,16 @@ INSTALLED_APPS += (
 	'django.contrib.sites',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
-#	'staticfiles',
+	## Admin panel and documentation. (leave this for django_cms)
+	# 'django.contrib.admin',
+	# 'django.contrib.admindocs',
 
-	# Admin panel and documentation.
-	'django.contrib.admin',
-	'django.contrib.admindocs',
-
+	# 'staticfiles', # uncommenting this is giving error
 	# South migration tool.
-	'south',
+	#'south',
+)
 
+INSTALLED_APPS += (
 	# Celery task queue.
 	# 'djcelery',
 
@@ -136,6 +137,7 @@ INSTALLED_APPS += (
 	# 'sentry.client',
 )
 ########## END APP CONFIGURATION
+
 
 
 ########## KEY CONFIGURATION, I'm not using this
@@ -188,7 +190,7 @@ MANAGERS = ADMINS
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Brazil'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -212,9 +214,9 @@ USE_TZ = True
 ########## TEMPLATE CONFIGURATION
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-'django.template.loaders.filesystem.Loader',
-'django.template.loaders.app_directories.Loader',
-#'django.template.loaders.eggs.Loader',
+	'django.template.loaders.filesystem.Loader',
+	'django.template.loaders.app_directories.Loader',
+	#'django.template.loaders.eggs.Loader',
 )
 
 # Directories to search when loading templates.

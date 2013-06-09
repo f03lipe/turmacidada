@@ -37,7 +37,7 @@ class CarouselItem(models.Model):
 	# name = models.CharField(max_length=50, unique=False, help_text='Identify this carousel item.')
 	title = models.CharField(max_length=80, blank=True, help_text='OPTIONAL! Insert the title to appear on the carousel. Watch out for the final format on the home page. 80 characters max.')
 	description = models.TextField(max_length=500, blank=True, help_text='OPTIONAL! Text to apper on the carousel. 500 characters maximum.')
-	link = models.URLField(help_text='The link the user is to be sent to. This is usually a blog post or a projects\'s webpage.')
+	link = models.URLField(blank=True, help_text='The link the user is to be sent to. This is usually a blog post or a projects\'s webpage.')
 	image = models.ImageField(upload_to=fileNameGenerator('carousel/img_'), help_text='Insert a 960x360px banner to appear on the carousel.')
 	is_published = models.BooleanField(default=True, help_text='Uncheck this to hide this carousel item.')
 	date_added = models.DateField(auto_now=True)
@@ -92,12 +92,15 @@ class TeamMember(models.Model):
 	def __unicode__(self):
 		return 'TeamMember %s (id: %s)' % (self.name, self.id)
 
+class TreeManager(models.Model):
+	pass
+
 ### Background's
 class PageBackground(models.Model):
 
 	file = models.ImageField(upload_to=fileNameGenerator('backgrounds/'))
 	date_added = models.DateField(auto_now_add=True)
-	is_active = models.NullBooleanField(default=True, null=True, help_text="The wallpaper will show up.")
+	is_active = models.BooleanField(default=True, help_text="The wallpaper will show up.")
 	header_color = models.CharField(max_length=20,
 		choices=(
 			('dark', 'dark header'),

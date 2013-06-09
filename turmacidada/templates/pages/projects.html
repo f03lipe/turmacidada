@@ -69,7 +69,7 @@
 	<div class="container">
 		{% loadModelObjects "ProjectItem" as projectitem %}
 		{% for project in projectitem|order_by:'-birth_date' %}
-		
+
 			<div class="project-item clearfix">
 				{% if project.banner %}
 					<img src="{{ MEDIA_URL }}{{ project.banner }}" onClick="window.open('{{ project.link }}')"/>

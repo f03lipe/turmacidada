@@ -2,7 +2,6 @@
 {% load cms_tags sekizai_tags custom_template_tags %}
 
 {% block content %}
-
 	<div id="fb-root"></div>
 	<script>
 
@@ -10,45 +9,32 @@
 	</script>
 
 	{% addtoblock "css" %}
-	<link rel="stylesheet" href="{{ STATIC_URL }}home.css"></link>
+		<link rel="stylesheet" href="{{ STATIC_URL }}home.css"></link>
 	{% endaddtoblock %}
-
-	<!-- carousel -->
-	<div class="container below-nav carousel-wrapper" style="box-shadow: 0 0 5px rgba(0, 0, 0, .3);">
-		<div class="carousel slide">
-			<div class="carousel-inner">
-				{% loadModelObjects "CarouselItem" as carousel_items %}
-				{% for citem in carousel_items|order_by:'-date_added'|filter:'is_published=True' %}
-				<div class="item {{ forloop.first|yesno:'active,' }} " onClick="location.href='{{ citem.link }}'">
-					<img src="{{ MEDIA_URL }}{{ citem.image }}">
-					{% if citem.title or citem.description %}
-					<div class="description" onClick="null(0)">
-						<div class="title">{{ citem.title }}</div>
-						{{ citem.description }}
-					</div>
-					{% endif %}
-				</div>
-				{% endfor %}
-			</div>
-
-			<div class="slider">
-				<button data-slide="prev" onClick="$('.carousel').carousel('prev'); return false;">
-					<i class="icon-chevron-left icon-white"></i>
-				</button>
-				<button data-slide="next" onClick="$('.carousel').carousel('next'); return false;">
-					<i class="icon-chevron-right icon-white"></i>
-				</button>
-			</div>
-		</div>
-		{% addtoblock "js" %}
+	{% addtoblock "js" %}
+		<script type="text/javascript" src="{{ STATIC_URL }}jquery.flexslider-min.js"></script>
 		<script>
 			$(document).ready(function () {
-				$('.carousel').carousel();
+				$('.flexslider').flexslider();
 			});
 		</script>
-		{% endaddtoblock %}
+	{% endaddtoblock %}
+
+	<!-- slider -->
+	<div class="container below-nav flexslider">
+			<ul class="slides">
+				{% loadModelObjects "CarouselItem" as carousel_items %}
+				{% for citem in carousel_items|order_by:'-date_added'|filter:'is_published=True' %}
+				<li>
+					{% if citem.description %}
+						<p class="flex-caption">{{ citem.description }}</p>
+					{% endif %}
+					<a {{ citem.link|yesno:"href=," }}"{{ citem.link }}"><img src="{{ MEDIA_URL }}{{ citem.image }}"></a>
+				</li>
+				{% endfor %}
+			</ul>
 	</div>
-	<!-- end carousel -->
+	<!-- end slider -->
 
 	<div class="banner" style="display: none">
 		clique e saiba como ajudar!

@@ -1,40 +1,37 @@
 
-import datetime
-from haystack import indexes
-from website.models import ProjectItem, TeamMember
+# import datetime
+# from haystack import indexes
+# from website.models import ProjectItem, TeamMember
 
 
-class ProjectItemIndex(indexes.SearchIndex, indexes.Indexable):
+# class ProjectItemIndex(indexes.SearchIndex, indexes.Indexable):
 
-	text = indexes.CharField(document=True, model_attr='name')
-	title = indexes.CharField(model_attr='name')
-	desc = indexes.CharField(model_attr='small_desc', indexed=True)
+# 	text = indexes.CharField(document=True, model_attr='name')
+# 	title = indexes.CharField(model_attr='name')
+# 	desc = indexes.CharField(model_attr='small_desc', indexed=True)
+# 	# text = indexes.CharField(document=True, use_template=True)
+# 	# author = indexes.CharField(model_attr='user')
+# 	# pub_date = indexes.DateTimeField(model_attr='pub_date')
+# 	rendered = indexes.CharField(use_template=True)
 
-	# text = indexes.CharField(document=True, use_template=True)
-	# author = indexes.CharField(model_attr='user')
-	# pub_date = indexes.DateTimeField(model_attr='pub_date')
+# 	def get_model(self):
+# 		return ProjectItem
 
-	rendered = indexes.CharField(use_template=True)
+# 	def index_queryset(self):
+# 		"""Used when the entire index for model is updated."""
+# 		return self.get_model().objects.all() # filter(pub_date__lte=datetime.datetime.now())
 
-	def get_model(self):
-		return ProjectItem
+# class TeamMemberIndex(indexes.SearchIndex, indexes.Indexable):
 
-	def index_queryset(self):
-		"""Used when the entire index for model is updated."""
-		return self.get_model().objects.all() # filter(pub_date__lte=datetime.datetime.now())
+# 	text = indexes.CharField(document=True, model_attr='name')
+# 	rendered = indexes.CharField(use_template=True)
 
-class TeamMemberIndex(indexes.SearchIndex, indexes.Indexable):
+# 	def get_model(self):
+# 		return TeamMember
 
-	text = indexes.CharField(document=True, model_attr='name')
-
-	rendered = indexes.CharField(use_template=True)
-
-	def get_model(self):
-		return TeamMember
-
-	def index_queryset(self):
-		"""Used when the entire index for model is updated."""
-		return self.get_model().objects.all() # filter(pub_date__lte=datetime.datetime.now())
+# 	def index_queryset(self):
+# 		"""Used when the entire index for model is updated."""
+# 		return self.get_model().objects.all() # filter(pub_date__lte=datetime.datetime.now())
 
 # from django.conf import settings
 # from django.utils.translation import string_concat, ugettext_lazy

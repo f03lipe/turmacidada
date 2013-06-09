@@ -1,86 +1,22 @@
 
-// CAROUSEL
-.carousel-wrapper {
-	width: 960px; /* 960px-10px for border */
-	height: 360px;
-	overflow: hidden;
-	position: relative;
+// base.less
+// for turmacidada.org
+// by f03lipe
 
-	cursor: pointer;
-	background: white;
-	
-	.carousel-inner {
-		position: relative;
-		
-		.item {
-			height: 360px;
-		}
+@import "macros.less";
+
+@fontsRoot: '/static/fonts/';
+
+.flexslider {
+	list-style: none;
+
+	.border-radius(0);
+	border: none;
+	.flex-control-nav.flex-control-paging {
+		display: none;
 	}
-	
-	.slider {
-		position: absolute;
-		border-radius: 3px;
-		bottom: 10px; left: 10px;
-		
-		button {
-			outline: none;
-			position: relative;
-			background: #444;
-			box-shadow: none;
-			padding: 5px;
-			border: none;
-
-			-webkit-transition: all 0.2s;
-			-moz-transition: all 0.2s;
-			-o-transition: all 0.2s;
-			transition: all 0.2s;
-		}
-		
-		button[data-slide=prev]:hover {
-			right: 3px;
-		}
-
-		button[data-slide=next]:hover {
-			left: 3px;
-		}
-	}
-
-	.description {
-
-		&:hover {
-			opacity: 1;
-		}
-
-		text-align: justify;
-		position: absolute;
-
-		padding: 10px;
-		right: 0px; bottom: 50px;
-		width: 300px;
-		padding-right: 15px;
-		
-		color: white;
-		background: rgba(0, 0, 0, .5);
-		opacity: .8;
-		
-		-webkit-transition: all 0.5s;
-		-moz-transition: all 0.5s;
-		-o-transition: all 0.5s;
-		transition: all 0.5s;
-		
-		a {
-			color: #0BF;
-			font-weight: bold;
-		}
-		
-		.title {
-			font-weight: bold;
-			font-size: 15px;
-		}
-	}
-
+	margin-bottom: 0;
 }
-
 
 // COLUMNS SETUP
 .columns {

@@ -1,6 +1,6 @@
 {% load cms_tags menu_tags sekizai_tags custom_template_tags thumbnail %}
 
-<!DOCTYPE html>
+<!DOCTYPE html lang="pt">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -20,26 +20,24 @@
 		<meta property="og:image" content="http://turmacidada.herokuapp.com/static/images/logo.png" />
 		<meta property="og:description" content="A TurmaCidadã desenvolve e apoia projetos sustentáveis voltados para a comunidada, promovendo o desenvolvimento 'socio-pessoa-ambiental'" />
 		<meta property="fb:app_id" content="7363627862327638" />
+		<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico"></link>
+		
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}flexslider.css"></link>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}font.css"></link>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
 
 		<meta name="author" content="Felipe Aragão Pires">
-		<link rel="author" href="http://twitter.com/f03lipe"><span style="display: none">Felipe Aragão Pires</span></link>
-
-		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
-		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
-		<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico"></link>
 	
 	{% render_block "css" %}
 
-	<script type="text/javascript" src="{{ STATIC_URL }}jquery.min.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}base.js"></script>
-	<script type="text/javascript" type="image/png" src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
 </head>
 
-<body class="">
-	{% getBackgroundImage as bg %}
-	<img src="{{ MEDIA_URL }}{{ bg.file }}" class="page-bg"></img>	
+{% getBackgroundImage as bg %}
+<body class="{{ bg.header_color }}">
+	<img onerror='this.style.display = "none"' src="{{ MEDIA_URL }}{{ bg.file }}" class="page-bg"></img>
 
-	<header class="{{ bg.header_color }}">
+	<header>
 		<div class="logo" onClick="location.href='/'">
 			<img src="{{ STATIC_URL }}images/logo.png" width=150 height=150/> 
 			<div class="name">Turma<br>Cidadã</div>
@@ -66,7 +64,7 @@
 		</div>
 
 		<nav>
-			{% show_menu 1 %}
+			{% show_menu 0 %}
 		</nav>
 	</header>
 	
@@ -76,7 +74,10 @@
 
 	{% include "projectslist.html" %}
 	{% include "footer.html" %}
-	{% render_block "js" %}
 
+	<script type="text/javascript" src="{{ STATIC_URL }}jquery.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}base.js"></script>
+	<script type="text/javascript" type="image/png" src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
+	{% render_block "js" %}

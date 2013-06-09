@@ -5,31 +5,6 @@
 
 	{% addtoblock "css" %}
 	<style>
-	.content .box#contact {
-		padding: 40px;
-	}
-
-	.content .fleft {
-		width: 400px;
-		float: left;
-		margin-right: 00px;
-	}
-
-	.content .fright {
-		display: block;
-		float: left;
-		margin-top: 20px;
-	}
-
-	.content input,
-	.content textarea {
-		width: 300px;
-	}
-
-	.content label {
-		font: 15px "Patua One";
-		color: #444;
-	}
 
 	.content h1,
 	.content h2,
@@ -39,36 +14,23 @@
 	.content h6 {
 		margin: 10px 0;
 	}
-
-	.content .box#contact h1,
-	.content .box#contact h2,
-	.content .box#contact h3,
-	.content .box#contact h4,
-	.content .box#contact h5,
-	.content .box#contact h6 {
-		font-family: "Patua One";
-		text-shadow: none;
-		color: #444;
+	
+	.content input,
+	.content textarea,
+	.content button {
+		margin-top: 10px;
+		font-family: "museo-sans";
 	}
 
-	.content .box#contact textarea,
-	.content .box#contact input {
-		font-size: 14px;
-	}
-	.content .box#contact textarea:focus,
-	.content .box#contact input:focus {
-		border: 1px solid #08C !important;
-		box-shadow: none;
-	}
-
-	.content .box#contact .btn {
-		font-weight: bold;
-		font: 15px "Patua One";
-	}
-
-	.content .box#contact input,
-	.content .box#contact textarea {
-		border-radius: 0;
+	.content form button {
+		position: relative;
+		padding: 7px 13px;
+		background: #009B95;
+		border: 1px solid #444;
+		box-shadow: 0 1px 4px rgba(0,0,0,.8);
+		border-radius: 4px;
+		color: white;
+		font:  15px/150% museo;
 	}
 
 	</style>
@@ -85,41 +47,28 @@
 				{% placeholder "GoogleMaps" %}
 			</div>
 		</div>
-		<div class="box fullwidth" id="contact">
-			<div class="fleft">
+	</div>
+
+	<div class="container" id="contact">
+		<div class="row-fluid">
+			<div class="span7">
 				<h2>Fale conosco!</h2>
 				<p>
 					Etiam rhoncus et in porttitor rhoncus sit dictumst arcu nisi, lacus mid rhoncus tristique parturient, nec. Integer integer! Et pulvinar magna, cum auctor augue! Dis turpis pid turpis, adipiscing et! A. Porta facilisis et est amet, magna dis. Ridiculus, enim porttitor lorem. Adipiscing augue? Vel rhoncus magna, diam, tempor est sed augue, amet dictumst diam, pellentesque. Mus sit pulvinar, magna! Sed proin scelerisque odio, habitasse, in ac a facilisis enim aenean ac tincidunt nascetur porta vut. Massa dis eu sagittis pulvinar. Mauris enim ut, nascetur ac quis tristique sit pulvinar pid platea habitasse, habitasse elementum eros! Ultrices mattis? Urna cum rhoncus ultrices rhoncus egestas elementum, quis purus quis amet cum massa natoque elementum auctor. Hac odio, amet? In adipiscing, mauris.
 				</p>
 			</div>
-			<div class="fright">
+			<div class="span5">
 				<form class="form-horizontal">
-					<formset>
-					<div class="control-group">
-						<label class="control-label" for="inputEmail">Nome</label>
-						<div class="controls">
-							<input type="text" id="inputName" placeholder="Quem é você?">
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputEmail">Email</label>
-						<div class="controls">
-							<input type="text" id="inputEmail" placeholder="Não será divulgado, nós prometemos!">
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputPassword">Mensagem</label>
-						<div class="controls">
-							<textarea rows='8' placeholder="Fale o que quiser..."></textarea>
-						</div>
-					</div>
-					<div class="control-group">
-						<div class="controls">
-							<button type="submit" class="btn btn-success">Enviar</button>
-						</div>
-					</div>
-					</formset>
+					<fieldset>
+						<input type="text" required placeholder="Your Name">
+						<input type="email" required placeholder="Your Email">		
+						<textarea rows="5" required style="width: 100%" placeholder="Your message goes here! :)"></textarea>
+						<button type="submit" onclick="return false;" class="btn btn-success" id="submit">
+							<strong>Submit</strong></button>
+						<h6>Your email adress is safe with us!</h6>
+					</fieldset>
 				</form>
+			</div>
 			</div>
 		</div>
 	</div>

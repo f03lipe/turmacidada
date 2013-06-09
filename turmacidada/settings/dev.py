@@ -39,15 +39,6 @@ from keys import *
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 # DEFAULT_FILE_STORAGE = 'turmacidada.settings.storage.CachedS3BotoStorage'
 
-MEDIASYNC = {
-	'BACKEND': 'mediasync.backends.s3',
-    'AWS_KEY': AWS_ACCESS_KEY_ID,
-    'AWS_SECRET': AWS_SECRET_ACCESS_KEY,
-    'AWS_BUCKET': AWS_STORAGE_BUCKET_NAME,
-    
-    'SERVE_REMOTE': False
-}
-
 # Adjust thumbnail storage
 THUMBNAIL_DEFAULT_STORAGE = '' # DEFAULT_FILE_STORAGE
 ########## END S3 CONFIGURATION
@@ -145,12 +136,12 @@ CACHES = {
 
 # # Absolute filesystem path to the directory that will hold user-uploaded files.
 # # Example: "/home/media/media.lawrence.com/media/"
-# MEDIA_ROOT = os.path.join(PROJECT_PATH, "media")
+MEDIA_ROOT = join(DJANGO_ROOT, "media")
 
 # # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # # trailing slash.
 # # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-# MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'
 
 # # Absolute path to the directory static files should be collected to.
 # # Don't put anything in this directory yourself; store your static files
