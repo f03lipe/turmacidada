@@ -6,6 +6,7 @@ src/
 gh-pages
 *.sqlite
 venv/
+venv*
 
 turmacidada/media/
 # turmacidada/website/migrations/
