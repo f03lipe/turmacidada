@@ -30,9 +30,10 @@ INSTALLED_APPS += (
 )
 
 INSTALLED_APPS += (
+	
 	'easy_thumbnails',
 	'filer',
-	
+
 	'cms.plugins.file',
 	'cms.plugins.flash',
 	'cms.plugins.googlemap',
