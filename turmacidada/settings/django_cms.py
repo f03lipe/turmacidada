@@ -6,19 +6,71 @@ print "Executing configuration file django_cms.py"
 # basic django-cms only
 # DON'T ADD ANYTHING HERE!
 INSTALLED_APPS = (
-#	'grappelli',
 	'cms',
 	'mptt',
-	'menus',
-	'south', 	# already added
-	'appmedia',
+#	'reversion',
+#	'south', 	# already added
+#	'appmedia',
+#	'menus',
 )
 
 # admin interface related apps
 INSTALLED_APPS += (
-	'django-menus',
+#	'django-menus',
 	'haystack',					# for search
-	'turmacidada',
+	'django.contrib.admin',
+	'django.contrib.admindocs',
+)
+
+# application related apps
+INSTALLED_APPS += (
+	'turmacidada',				# the project
+	'turmacidada.website',		# the project's app
+#	'filer',
+#	'tinymce',
+	# 'easy_thumbnails',
+)
+
+INSTALLED_APPS += (
+	'sekizai',					# for template functionallity: "addtoblock" etc
+	# 'django_cleanup',
+	# 'cms.plugins.file',
+	# 'cms.plugins.flash',
+	# 'cms.plugins.googlemap',
+	# 'cms.plugins.link',
+	# 'cms.plugins.picture',
+	# 'cms.plugins.snippet',
+	# 'cms.plugins.teaser',
+	# 'cms.plugins.text',
+	# 'cms.plugins.video',
+	# 'cms.plugins.twitter',
+)
+
+# storage related
+INSTALLED_APPS += (
+# 	'storages',
+# #	'memcache',
+# #	'boto',
+# #	'compressor',
+# 	's3cache',
+)
+
+"""
+# basic django-cms only
+# DON'T ADD ANYTHING HERE!
+INSTALLED_APPS = (
+	'cms',
+#	'mptt',
+	'reversion',
+#	'south', 	# already added
+	'appmedia',
+	'menus',
+)
+
+# admin interface related apps
+INSTALLED_APPS += (
+#	'django-menus',
+	'haystack',					# for search
 	'django.contrib.admin',
 	'django.contrib.admindocs',
 )
@@ -53,8 +105,9 @@ INSTALLED_APPS += (
 #	'memcache',
 #	'boto',
 #	'compressor',
-#	's3cache',
+	's3cache',
 )
+"""
 
 # filer plugin
 # INSTALLED_APPS += (
@@ -99,13 +152,13 @@ THUMBNAIL_PROCESSORS = (
 
 # djang-cms installation process
 gettext = lambda s: s
+
 LANGUAGES = [
 	('pt', gettext('Portuguese')),
 	('en', gettext('English')),
 #	('de', gettext('German')),
 #	('fe', gettext('French')),
 ]
-
 CMS_HIDE_UNTRANSLATED = False
 CMS_FRONTEND_LANGUAGES = ('pt', 'en')
 
