@@ -12,14 +12,13 @@ django-cms==2.4.2
 django-cms-plugins==1.0.1
 django-cms-search==0.6.3
 django-filer==0.9.4
-django-haystack==1.2.7
+-e git+https://github.com/toastdriven/django-haystack.git@58f4eddbf1044a2a5663de470301c0af7a957b13#egg=django_haystack-dev
 django-mptt==0.5.2
 django-polymorphic==0.5
 django-pylibmc==0.5.0
 django-sekizai==0.7
 django-storages==1.1.8
 easy-thumbnails==1.2
-haystack==0.15
 html5lib==1.0b1
 newrelic==1.12.0.56
 psycopg2==2.5
