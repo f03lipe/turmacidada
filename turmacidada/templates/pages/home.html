@@ -21,9 +21,10 @@
 	{% endaddtoblock %}
 
 	<!-- slider -->
+	{% loadModelObjects "CarouselItem" as carousel_items %}
+	{% if carousel_items|order_by:'-date_added'|filter:'is_published=True'|length %}
 	<div class="container below-nav flexslider">
 			<ul class="slides">
-				{% loadModelObjects "CarouselItem" as carousel_items %}
 				{% for citem in carousel_items|order_by:'-date_added'|filter:'is_published=True' %}
 				<li>
 					{% if citem.description %}
@@ -33,6 +34,7 @@
 				</li>
 				{% endfor %}
 			</ul>
+	{% endif %}
 	</div>
 	<!-- end slider -->
 

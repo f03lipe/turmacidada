@@ -176,11 +176,15 @@ header {
 	/* SEARCH */
 	form.search {
 		display: inline-block;
-	
+		
+
 		input {
 			border-radius: 0;
 			box-shadow: none !important;
 			border: 1px solid white;
+		}
+		body:not(.light) & input {
+			border-color: #DDD;
 		}
 
 		i {

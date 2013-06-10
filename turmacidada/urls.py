@@ -32,6 +32,7 @@ urlpatterns = patterns('',
 )
 
 if 'haystack' in settings.INSTALLED_APPS:
+	print "Using haystack"
 	import haystack.urls
 	from haystack.views import SearchView
 

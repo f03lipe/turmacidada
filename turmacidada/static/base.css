@@ -22,6 +22,7 @@ header .logo{display:table;cursor:pointer;}header .logo img,header .logo .name{d
 header .logo .name{font:47px/52px 'FredokaOne';margin-left:20px;vertical-align:middle;color:#444;}
 header .upper-line{position:absolute;top:20px;right:0px;}
 header form.search{display:inline-block;}header form.search input{border-radius:0;box-shadow:none !important;border:1px solid white;}
+body:not(.light) header form.search input{border-color:#DDD;}
 header form.search i{cursor:pointer;position:relative;right:25px;margin-top:-3px;}
 header .slogan{font:bold 20px/20px 'GochiHand';color:#666;position:relative;bottom:60px;width:300px;text-align:right;margin:0 auto;cursor:default;}
 header .social-btns{position:absolute;bottom:50px;right:0;}header .social-btns a{margin:0 3px;padding:0px;background-color:transparent;background-image:url(/static/images/sicons.png);display:inline-block;border-width:0px;border-style:none;vertical-align:middle;font:inherit;color:blue;opacity:1;-webkit-transition:all 0.3s linear;-moz-transition:all 0.3s linear;-o-transition:all 0.3s linear;-ms-transition:all 0.3s linear;transition:all 0.3s linear;}

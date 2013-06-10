@@ -103,8 +103,8 @@ class PageBackground(models.Model):
 	is_active = models.BooleanField(default=True, help_text="The wallpaper will show up.")
 	header_color = models.CharField(max_length=20,
 		choices=(
-			('dark', 'dark header'),
-			('light', 'light header'),
+			('dark', 'dark body (for light backgrounds)'),
+			('light', 'light body (for dark backgrounds)'),
 		), default=('dark'))
 
 	def __unicode__(self):

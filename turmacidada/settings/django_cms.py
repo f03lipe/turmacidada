@@ -9,15 +9,16 @@ INSTALLED_APPS = (
 	'cms',
 	'mptt',
 #	'reversion',
-#	'south', 	# already added
-#	'appmedia',
-#	'menus',
+#	'south',
+	'appmedia',
+	'menus',
+	
+	# Dependencies (or installed alongside)
+	'sekizai',		# for template functionallity: "addtoblock" etc
 )
 
 # admin interface related apps
 INSTALLED_APPS += (
-#	'django-menus',
-	'haystack',					# for search
 	'django.contrib.admin',
 	'django.contrib.admindocs',
 )
@@ -26,24 +27,22 @@ INSTALLED_APPS += (
 INSTALLED_APPS += (
 	'turmacidada',				# the project
 	'turmacidada.website',		# the project's app
-#	'filer',
-#	'tinymce',
-	# 'easy_thumbnails',
 )
 
 INSTALLED_APPS += (
-	'sekizai',					# for template functionallity: "addtoblock" etc
-	# 'django_cleanup',
-	# 'cms.plugins.file',
-	# 'cms.plugins.flash',
-	# 'cms.plugins.googlemap',
-	# 'cms.plugins.link',
-	# 'cms.plugins.picture',
-	# 'cms.plugins.snippet',
-	# 'cms.plugins.teaser',
-	# 'cms.plugins.text',
-	# 'cms.plugins.video',
-	# 'cms.plugins.twitter',
+	'easy_thumbnails',
+	'filer',
+	
+	'cms.plugins.file',
+	'cms.plugins.flash',
+	'cms.plugins.googlemap',
+	'cms.plugins.link',
+	'cms.plugins.picture',
+	'cms.plugins.snippet',
+	'cms.plugins.teaser',
+	'cms.plugins.text',
+	'cms.plugins.video',
+	'cms.plugins.twitter',
 )
 
 # storage related
@@ -128,6 +127,9 @@ HAYSTACK_CONNECTIONS = {
 		'PATH': join(DJANGO_ROOT, 'whoosh_index'),
 	},
 }
+HAYSTACK_SITECONF='turmacidada.search_indexes'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = join(DJANGO_ROOT, 'whoosh_index')
 ########## END HAYSTACK CONFIGURATION
 
 # djang-cms installation process
