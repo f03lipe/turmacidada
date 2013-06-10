@@ -49,6 +49,7 @@ INSTALLED_APPS += (
 INSTALLED_APPS += (
  	'storages',
 	'memcache',
+	'haystack',
 # #	'boto',
 # #	'compressor',
 # 	's3cache',
@@ -127,8 +128,6 @@ HAYSTACK_CONNECTIONS = {
 		'PATH': join(DJANGO_ROOT, 'whoosh_index'),
 	},
 }
-HAYSTACK_SITECONF='turmacidada.search_indexes'
-HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH = join(DJANGO_ROOT, 'whoosh_index')
 ########## END HAYSTACK CONFIGURATION
 
