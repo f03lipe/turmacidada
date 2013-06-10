@@ -40,7 +40,7 @@ class CarouselItem(models.Model):
 	link = models.URLField(blank=True, help_text='The link the user is to be sent to. This is usually a blog post or a projects\'s webpage.')
 	image = models.ImageField(upload_to=fileNameGenerator('carousel/img_'), help_text='Insert a 960x360px banner to appear on the carousel.')
 	is_published = models.BooleanField(default=True, help_text='Uncheck this to hide this carousel item.')
-	date_added = models.DateField(auto_now=True)
+	date_added = models.DateTimeField(auto_now=True)
 
 	# date_modified = models.DateField(auto_now=True)
 	# Add times clicked? (or leave it to _GA?)
@@ -99,7 +99,7 @@ class TreeManager(models.Model):
 class PageBackground(models.Model):
 
 	file = models.ImageField(upload_to=fileNameGenerator('backgrounds/'))
-	date_added = models.DateTimeField(auto_now_add=True)
+	date_added = models.DateField(auto_now_add=True)
 	is_active = models.BooleanField(default=True, help_text="The wallpaper will show up.")
 	header_color = models.CharField(max_length=20,
 		choices=(
