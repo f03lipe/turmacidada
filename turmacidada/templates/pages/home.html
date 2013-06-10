@@ -22,10 +22,10 @@
 
 	<!-- slider -->
 	{% loadModelObjects "CarouselItem" as carousel_items %}
-	{% if carousel_items|order_by:'-date_added'|filter:'is_published=True'|length %}
+	{% if carousel_items|filter:'is_published=True'|length %}
 	<div class="container below-nav flexslider">
 			<ul class="slides">
-				{% for citem in carousel_items|order_by:'-date_added'|filter:'is_published=True' %}
+				{% for citem in carousel_items|order_by:'date_added'|filter:'is_published=True' %}
 				<li>
 					{% if citem.description %}
 						<p class="flex-caption">{{ citem.description }}</p>
