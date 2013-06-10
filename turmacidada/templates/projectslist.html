@@ -1,5 +1,7 @@
 {% load cms_tags sekizai_tags custom_template_tags %}
 
+{% loadModelObjects "ProjectItem" as projectslist_items %}
+{% if projectslist_items.all %}
 <div class="container">
 
 	<div class="box projects fullwidth">
@@ -7,7 +9,6 @@
 			Conheça alguns de nossos projetos
 		</div>
 		
-		{% loadModelObjects "ProjectItem" as projectslist_items %}
 		{% for pitem in projectslist_items|order_by:'?'|slice:":5" %}
 			
 			<li class="item">
@@ -25,3 +26,4 @@
 	</div>
 
 </div>
+{% endif %}

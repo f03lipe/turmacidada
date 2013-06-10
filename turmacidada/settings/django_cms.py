@@ -9,7 +9,7 @@ INSTALLED_APPS = (
 	'cms',
 	'mptt',
 #	'reversion',
-#	'south',
+	'south',
 	'appmedia',
 	'menus',
 	
