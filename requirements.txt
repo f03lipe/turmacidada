@@ -20,6 +20,7 @@ easy-thumbnails==1.2
 haystack==0.15
 html5lib==1.0b1
 newrelic==1.12.0.56
+psycopg2==2.5
 pylibmc==1.2.3
 python-memcached==1.53
 python-ptrace==0.6.5
