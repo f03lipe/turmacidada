@@ -47,8 +47,8 @@ INSTALLED_APPS += (
 
 # storage related
 INSTALLED_APPS += (
-# 	'storages',
-# #	'memcache',
+ 	'storages',
+	'memcache',
 # #	'boto',
 # #	'compressor',
 # 	's3cache',
