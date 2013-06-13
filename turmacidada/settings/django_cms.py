@@ -193,9 +193,10 @@ CMS_TEMPLATES = (
 ########## CUSTOM CONTEXT
 custom_context = {
 	'sn': {
-		'facebook': 'http://facebook.com',
+		'facebook': 'http://facebook.com/turmacidadabrasil',
 		'twitter': 'http://twitter.com',
 		'vimeo': 'http://vimeo.com',
+		'google-plus': 'http://+.google.com',
 		'flickr': 'http://flickr.com',
 		'rss': 'http://turmacidada.tumblr.com/rss',
 		'blog': 'http://turmacidada.tumblr.com'

@@ -11,6 +11,11 @@
 	{% addtoblock "css" %}
 		<link rel="stylesheet" href="{{ STATIC_URL }}home.css"></link>
 	{% endaddtoblock %}
+
+	{% addtoblock "cssbefore" %}
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}flexslider.css"></link>
+	{% endaddtoblock %}
+
 	{% addtoblock "js" %}
 		<script type="text/javascript" src="{{ STATIC_URL }}jquery.flexslider-min.js"></script>
 		<script>

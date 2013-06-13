@@ -13,8 +13,7 @@
 @font-face { .fontface('OpenSans', 400); }
 @font-face { .fontface('PatuaOne', 400); }
 @font-face { .fontface('GochiHand', 400); }
-// @font-face { .fontface('Museo', 400); }
-@font-face { .fontface('WebSymbols'); }
+@font-face { .fontface('fontawesome'); }
 
 /******************************************************************************/
 /******************************************************************************/
@@ -36,7 +35,7 @@
 
 body {
 	text-rendering: geometricPrecision;
-	font-family: 'museo-sans', 'Helvetica Nue', Helvetica, Arial, sans-serif;
+	font-family: 'museo-sans', 'Helvetica Nue', Helvetica, sans-serif;
 }
 
 
@@ -105,7 +104,7 @@ input {
 	.page-text {
 		margin: 40px;
 		color: #444;
-		font: 14px MuseoSans, "Helvetica Nue", Helvetica, Arial, sans-serif;
+		font: 14px "museo-sans", OpenSans, "Helvetica Nue", Helvetica, Arial, sans-serif;
 		line-height: 20px;
 	}
 
@@ -142,6 +141,7 @@ input {
 // PAGE HEADER
 header {
 	margin-top: 40px;
+	padding-bottom: 30px;
 	position: relative;
 	cursor: default;
 
@@ -160,11 +160,19 @@ header {
 			.user_select(none);
 		}
 
-		.name {		
-			font: 47px/52px 'FredokaOne';
-			margin-left: 20px;
+		.name {	
+			font: 47px/44px 'PatuaOne';
+			margin-left: 10px;
 			vertical-align: middle;
 			color: #444;
+
+			span {
+				display: block;
+				margin-top: -10px;
+				text-indent: 10px;
+				font-size: 25px;
+				color: #3AD;
+			}
 		}
 	}
 	
@@ -197,13 +205,14 @@ header {
 
 	/* SLOGAN */
 	.slogan {
+		position: absolute;
+		width: 300px;
+		top: 55px;
+		left: 360px;
+		
 		font: bold 20px/20px 'GochiHand';
 		color: #666;
-		
-		position: relative;
-		bottom: 60px;
-		width: 300px;
-		text-align: right;
+		text-align: left;
 		margin: 0 auto;
 		cursor: default;
 	}
@@ -211,40 +220,44 @@ header {
 	/* SOCIAL BUTTONS */
 	.social-btns {
 		position: absolute;
-		bottom: 50px;
-		right: 0;
+		bottom: 55px;
+		right: 20px;
 	
 		a {
-			margin: 0 3px;
-			padding: 0px;
-			
-			background-color: transparent;
-			background-image: url(/static/images/sicons.png);
-			
+			// reset from a
+			outline: none;
+			text-decoration: none;
+			text-transform: none;
+
 			display: inline-block;
-			border-width: 0px;
-			border-style: none;
-			vertical-align: middle;
+			width: 45px;
+			text-align: center;
+			padding: 13px 5px;
+
+			.box-sizing();
+			.transition(all, .1s);
+			border-radius: 50px;
+			margin-right: 10px;
+			border: 2px dashed rgba(255,255,255,.3);
 			
-			font: inherit;
-			color: blue;
-			opacity: 1;
+			opacity: .8;
+			
+			&:hover {
+				opacity: 1;
+				bsackground: rgba(0,0,0,.3);
+				border: 2px solid rgba(255,255,255,.7);
+			}
 
-			.transition(all, 0.3s);
+			i {
+				font-size: 30px;
+				color: #333;
+	
+				body.light & {
+					color: white;
+				}
+			}
 		}
 
-		a:active {
-			border-width: 0px;
-			border-style: none;
-			outline: 0;
-			box-shadow: none;
-		}
-
-		.sprite-Facebook { background-position: 0 0; width: 48px; height: 48px; } 
-		.sprite-Flickr { background-position: 0 -53px; width: 48px; height: 48px; } 
-		.sprite-Rss { background-position: 0 -106px; width: 32px; height: 32px; } 
-		.sprite-Twitter { background-position: 0 -143px; width: 48px; height: 48px; } 
-		.sprite-Vimeo { background-position: 0 -196px; width: 48px; height: 48px; }
 	}
 
 
@@ -349,6 +362,7 @@ footer {
 	}
 	
 	.links {
+		margin-top: 15px;
 		float: left;
 		letter-spacing: 1px;
 		text-transform: uppercase;
@@ -370,7 +384,7 @@ footer {
 		text-align: right;
 		font: 12px 'PatuaOne';
 		float: right;
-		texst-shadow: 0 0 3px rgba(0, 0, 0, 1);
+		text-shadow: 0 0 3px rgba(0, 0, 0, .4);
 	}
 }
 
@@ -385,12 +399,15 @@ footer {
 		line-height: 1.4em;
 		font-size: 15px;
 		margin-bottom: 10px;
-		font-family: museo;
+		font-family: museo, OpenSans;
 	}
 
-	blockquote * {
-		text-indent: 0;
-		font: 26px "museo-sans", Arial;
+	blockquote {
+		margin: 15px 0;
+		* {
+			text-indent: 0;
+			font: 26px "museo-sans", Arial;
+		}
 	}
 
 	h1,	h2,	h3,	h4 {

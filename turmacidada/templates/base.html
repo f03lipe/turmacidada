@@ -12,6 +12,7 @@
 		<meta name="description" content="A TurmaCidadã desenvolve e apoia projetos sustentáveis voltados para a comunidada, promovendo o desenvolvimento 'socio-pessoa-ambiental'.">
 		<meta name="keywords" content="Turma Cidadã, Turmacidada, ONG, CEFET, cidadania, sustenstabilidade, maracanã, rio de janeiro. Brasil, Silvino Netto, Felipe Aragão Pires, socio-pessoa-ambiental,desenvolvimento,Centro Federal de Educação Tecnológica Celso Suckow da Fonseca, palestra, video, região serrana, mutirão solidário">
 		<meta name="viewport" content="width=device-width">
+		<meta name="author" content="Felipe Aragão Pires">
 
 		<meta property="og:url" content="http://turmacidada.org/" />
 		<meta property="og:site_name" content="Turma Cidadã" />
@@ -21,15 +22,14 @@
 		<meta property="og:description" content="A TurmaCidadã desenvolve e apoia projetos sustentáveis voltados para a comunidada, promovendo o desenvolvimento 'socio-pessoa-ambiental'" />
 		<meta property="fb:app_id" content="7363627862327638" />
 		<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico"></link>
-		
-		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
-		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}flexslider.css"></link>
-		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}font.css"></link>
-		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
 
-		<meta name="author" content="Felipe Aragão Pires">
-	
-	{% render_block "css" %}
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fonts.css"></link>
+		{% render_block "cssbefore" %}
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
+		{% render_block "css" %}
 
 </head>
 
@@ -39,8 +39,8 @@
 
 	<header>
 		<div class="logo" onClick="location.href='/'">
-			<img src="{{ STATIC_URL }}images/logo.png" width=150 height=150/> 
-			<div class="name">Turma<br>Cidadã</div>
+			<img src="{{ STATIC_URL }}images/logo.png" width=150 height=150/>
+			<div class="name">Turma<br>Cidadã<span>Brasil</span></div>
 		</div>
 
 		<div class="slogan">
@@ -48,12 +48,19 @@
 		</div>
 
 		<div class="social-btns">
-			<a href="{{ sn.facebook }}" class="sprite-Facebook"></a>
-			<a href="{{ sn.vimeo }}" class="sprite-Vimeo"></a>
-			<a href="{{ sn.twitter }}" class="sprite-Twitter"></a>
-			<a href="{{ sn.flickr }}" class="sprite-Flickr"></a>
-			<a href="{{ sn.rss }}" class="sprite-Rss"></a>
+			<a class="" href="{{ sn.facebook }}"><i class="icon-facebook"></i></a>
+			<a class="" href="{{ sn.twitter }}"><i class="icon-twitter"></i></a>
+			<a class="" href="{{ sn.gplus }}"><i class="icon-google-plus"></i></a>
+
 		</div>
+
+<!-- 		<div class="social-btns">
+			<a href="{{ sn.facebook }}" class="spriteD-Facebook"></a>
+			<a href="{{ sn.vimeo }}" class="spriteD-Vimeo"></a>
+			<a href="{{ sn.twitter }}" class="spriteD-Twitter"></a>
+			<a href="{{ sn.flickr }}" class="spriteD-Flickr"></a>
+			<a href="{{ sn.rss }}" class="spriteD-Rss"></a>
+		</div> -->
 
 		<div class="upper-line">
 			{% language_chooser "language_chooser.html" %}
