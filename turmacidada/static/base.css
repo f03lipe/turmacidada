@@ -51,12 +51,13 @@ footer{left:0;right:0;width:100% !important;margin-top:25px;margin-bottom:25px;z
 footer .links{float:left;letter-spacing:1px;text-transform:uppercase;font:14px 'PatuaOne';}footer .links a{margin:0 7px 0 7px;text-decoration:none;}
 footer .links a:hover,footer .info a:hover{color:inherit;}
 footer .info{margin-right:10px;text-align:right;font:12px 'PatuaOne';float:right;texst-shadow:0 0 3px #000000;}
+.text-plugin p{margin:0;text-indent:2em;line-height:1.4em;font-size:15px;margin-bottom:10px;font-family:museo;}
+.text-plugin blockquote *{text-indent:0;font:26px "museo-sans",Arial;}
 .text-plugin h1,.text-plugin h2,.text-plugin h3,.text-plugin h4{letter-spacing:1px;font-family:'PatuaOne';font-weight:bold;}
 .text-plugin h1,.text-plugin h2{color:#2794E2;}
-.text-plugin h1{font-size:35px;margin:20px 0 20px 15px;text-transform:uppercase;}
+.text-plugin h1{font-size:35px;margin:20px 0 20px 15px;}
 .text-plugin h2{font-size:25px;margin:15px 0 15px 10px;}
 .text-plugin h3,.text-plugin h4{font-family:'PatuaOne';}
-.text-plugin p{margin:0;text-indent:2em;font-size:15px;}
 .popover .popover-title{font-family:'PatuaOne';letter-spacing:1px;}
 .popover .popover-inner{background-color:white;box-shadow:0 1px 10px rgba(0, 0, 0, 0.3) !important;}
 .popover .arrow{border-top-color:white !important;border-left-color:transparent !important;border-right-color:transparent !important;}

@@ -378,6 +378,21 @@ footer {
 // TEXT PLUGIN
 .text-plugin {
 
+
+	p {
+		margin: 0; /* reset bootstrap */
+		text-indent: 2em;
+		line-height: 1.4em;
+		font-size: 15px;
+		margin-bottom: 10px;
+		font-family: museo;
+	}
+
+	blockquote * {
+		text-indent: 0;
+		font: 26px "museo-sans", Arial;
+	}
+
 	h1,	h2,	h3,	h4 {
 		letter-spacing: 1px;
 		font-family: 'PatuaOne';
@@ -391,7 +406,7 @@ footer {
 	h1 {
 		font-size: 35px;
 		margin: 20px 0 20px 15px;
-		text-transform: uppercase;
+		// text-transform: uppercase;
 	}
 
 	h2 {
@@ -401,12 +416,6 @@ footer {
 
 	h3,	h4 {
 		font-family: 'PatuaOne';
-	}
-
-	p {
-		margin: 0; /* reset bootstrap */
-		text-indent: 2em;
-		font-size: 15px;
 	}
 }
 
