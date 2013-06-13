@@ -54,7 +54,7 @@ class NewsFeedItem(models.Model):
 
 	title = models.CharField(max_length=50)
 	description = models.TextField(max_length=350, help_text='Maximum of 320 characters. Keep it simple.')
-	thumbnail = models.ImageField(upload_to=fileNameGenerator('newsfeed/thumbnail_'), null=True, blank=True, help_text='Can be left blank. Recommended resolution: 100x100.')
+	thumbnail = models.ImageField(upload_to=fileNameGenerator('newsfeed/thumbnail_'), null=True, blank=True, help_text='May be left blank. Recommended resolution: 100x100.')
 	date = models.DateField(help_text='The date the item was posted on.')
 	link = models.URLField(help_text='The url to the news item.')
 

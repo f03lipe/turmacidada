@@ -57,7 +57,8 @@ def snippetGetter(attr, csize):
 
 def thumbnailDisplayer(attr, height=100):
 	def func(self):
-		return "<img height='%s' src='%s' />" % (height, getattr(self, attr).url)
+		img = getattr(self, attr)
+		return '' if not img else "<img height='%s' src='%s' />" % (height, img.url)
 	func.short_description = attr
 	func.allow_tags = True
 	return func

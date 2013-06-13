@@ -48,16 +48,16 @@
 	</div>
 
 	<div class="container">
-		<div class="columns">
-
-			<div class="column-1">
+		<div class="row-fluid transparent">
+			<div class="span7">
 				<!-- newsfeed -->
 				<div class="box news">
+					{% loadModelObjects "NewsFeedItem" as newsfeed_items %}
+
 					<div class="box-title">
 						Últimas atualizações: <a href="#">(direto do nosso blog)</a>
 					</div>
 
-					{% loadModelObjects "NewsFeedItem" as newsfeed_items %}
 					{% for nitem in newsfeed_items|order_by:'-date'|slice:':5' %}
 					<li>
 						<div class="content" onClick="window.location.href='{{nitem.link}}'">
@@ -74,18 +74,17 @@
 				</div>
 				<!-- end newsfeed -->
 			</div>
-			<div class="column-2">
+			<div class="span5">
 				<iframe style="margin-bottom: 10px"
 					src="http://player.vimeo.com/video/25056574?portrait=0&amp;color=c8b3df"
-					width="410" height="236" frameborder="0"
+					width="388" height="236" frameborder="0"
 					webkitAllowFullScreen mozallowfullscreen allowFullScreen>
 				</iframe>
-				<div class="fb-like-box" data-href="http://www.facebook.com/pages/Programa-Turma-Cidadã/210131722332869" data-width="410"
-					 data-height="350" data-show-faces="true" data-stream="false" data-header="false"
+				<div class="fb-like-box" data-href="http://www.facebook.com/pages/Programa-Turma-Cidadã/210131722332869" data-width="388"
+					 data-height="250" data-show-faces="true" data-stream="false" data-header="false"
 					 style="background-color: white">
 				</div>
 			</div>
-		
 		</div>
 	</div>
 

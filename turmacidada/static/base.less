@@ -59,17 +59,20 @@ h1, h2, h3, h4 {
 /******************************************************************************/
 /******************************************************************************/
 
-.row-fluid [class*="span"] {
+input {
+	height: inherit !important; // fix bug
+}
+
+.row:not(.transparent), .row-fluid:not(.transparent) [class*="span"] {
 	// padding-top: 10px;
 	// padding-left: 25px;
 	padding: 10px 25px;
 }
 
-input {
-	height: inherit !important;
-}
+// this (:not(transparent)) is not exactly good enough
+// fix it, man
 
-.row-fluid {
+.row:not(.transparent), .row-fluid:not(.transparent) {
 	padding: 10px;
 }
 
@@ -79,9 +82,8 @@ input {
 	.border-radius(0);
 }
 
-
 // PAGE CONTENT BOXES
-.box, .row-fluid {
+.box, .row, .row-fluid {
 	.box-sizing();
 	margin-top: 10px;
 	background: white;
@@ -117,6 +119,11 @@ input {
 		text-transform: uppercase;
 		font: 14px 'PatuaOne';
 	}
+}
+
+.row.transparent, .row-fluid.transparent {
+	box-shadow: none;
+	background: auto;
 }
 
 
@@ -239,14 +246,14 @@ header {
 			.transition(all, .1s);
 			border-radius: 50px;
 			margin-right: 10px;
-			border: 2px dashed rgba(255,255,255,.3);
+			border: 2px dashed transparent;
 			
-			opacity: .8;
+			opacity: .9;
 			
 			&:hover {
 				opacity: 1;
-				bsackground: rgba(0,0,0,.3);
-				border: 2px solid rgba(255,255,255,.7);
+				border-color: rgba(255,255,255,.7);
+				border-style: solid;
 			}
 
 			i {
@@ -360,6 +367,12 @@ footer {
 
 	body:not(.light) & {
 		color: #444 !important;
+		.info {
+			text-shadow: none;
+		}
+		.links a {
+			color: white;
+		}
 	}
 	
 	.links {
