@@ -18,6 +18,7 @@ django-polymorphic==0.5
 django-pylibmc==0.5.0
 django-sekizai==0.7
 django-storages==1.1.8
+django-tinymce==1.5.1
 easy-thumbnails==1.2
 html5lib==1.0b1
 newrelic==1.12.0.56
