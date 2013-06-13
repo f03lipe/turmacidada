@@ -50,6 +50,7 @@ INSTALLED_APPS += (
  	'storages',
 	'memcache',
 	'haystack',
+	'tinymce',
 # #	'boto',
 # #	'compressor',
 # 	's3cache',

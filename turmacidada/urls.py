@@ -21,15 +21,14 @@ urlpatterns = patterns('',
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^', include(cms.urls)),
 
-
 	# media related
 	url(r'', include('django.contrib.staticfiles.urls')),
 	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
 	url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-	# url(r'^', include('mediasync.urls')),
-
-#	(r'^tinymce/', include('tinymce.urls')),
 )
+
+if 'tinymce' in settings.INSTALLED_APPS:
+	urlpatterns += patterns('', (r'^tinymce/', include('tinymce.urls')))
 
 if 'haystack' in settings.INSTALLED_APPS:
 	print "Using haystack"
