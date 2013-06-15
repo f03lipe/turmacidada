@@ -3,3 +3,4 @@ Disallow: /admin/
 Disallow: /media/
 Disallow: /static/
 Allow: /
+Allow: /equipe
