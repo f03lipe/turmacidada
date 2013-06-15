@@ -144,11 +144,9 @@ class ProjectItemAdmin(admin.ModelAdmin):
 class TeamMemberForm(ModelForm):
 	class Meta:
 		model = TeamMember
-	clean_avatar = assertInResolution('avatar', 140, 185)
+	clean_avatar = assertInResolution('avatar', (140, 700), (185,925))
 	def clean_name(self):
 		name = self.cleaned_data.get('name')
-		if len(name.split(' ')) > 2:
-			raise ValidationError('Please insert only two words for each member\'s name.')
 		return name
 
 class TeamMemberAdmin(admin.ModelAdmin):
