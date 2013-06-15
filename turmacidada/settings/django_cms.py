@@ -193,7 +193,7 @@ CMS_TEMPLATES = (
 
 ########## CUSTOM CONTEXT
 custom_context = {
-	'address': 'Rua General Canabarro, 522, Tijuca, Rio de Janeiro',
+	'address': 'Rua Gal. Canabarro, 552, sala 3, Campus 3. Maracanã, Rio de Janeiro ',
 	'tel': '(021) 2566 3055',
 	'email': 'turmacidadabrasil@gmail.com',
 	'sn': {
