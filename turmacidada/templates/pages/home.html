@@ -27,19 +27,21 @@
 
 	<!-- slider -->
 	{% loadModelObjects "CarouselItem" as carousel_items %}
-	{% if carousel_items|filter:'is_published=True'|length %}
-	<div class="container below-nav flexslider">
-			<ul class="slides">
-				{% for citem in carousel_items|filter:'is_published=True'|order_by:'-date_added' %}
-				<li>
-					{% if citem.description %}
-						<p class="flex-caption">{{ citem.description }}</p>
-					{% endif %}
-					<a {{ citem.link|yesno:"href=," }}"{{ citem.link }}"><img src="{{ MEDIA_URL }}{{ citem.image }}"></a>
-				</li>
-				{% endfor %}
-			</ul>
-	{% endif %}
+	{% with citems=carousel_items|filter:'is_published=True' %}
+		{% if citems|length %}
+		<div class="container below-nav flexslider">
+				<ul class="slides">
+					{% for citem in citems|order_by:'-date_added' %}
+					<li>
+						{% if citem.description %}
+							<p class="flex-caption">{{ citem.description }}</p>
+						{% endif %}
+						<a {{ citem.link|yesno:"href=," }}"{{ citem.link }}"><img src="{{ MEDIA_URL }}{{ citem.image }}"></a>
+					</li>
+					{% endfor %}
+				</ul>
+		{% endif %}
+	{% endwith %}
 	</div>
 	<!-- end slider -->
 
@@ -53,24 +55,25 @@
 				<!-- newsfeed -->
 				<div class="box news">
 					{% loadModelObjects "NewsFeedItem" as newsfeed_items %}
-
-					<div class="box-title">
-						Últimas atualizações: <a href="#">(direto do nosso blog)</a>
-					</div>
-
-					{% for nitem in newsfeed_items|order_by:'-date'|slice:':5' %}
-					<li>
-						<div class="content" onClick="window.location.href='{{nitem.link}}'">
-							{% if nitem.thumbnail %}
-								<img width="100" src="{{ MEDIA_URL }}{{ nitem.thumbnail }}" class="main-img">
-							{% endif %}
-							<div class="text">
-								<span class="title">{{ nitem.date }}, {{ nitem.title }}<br></span>
-								{{ nitem.description|safe }}
-							</div>
+					{% if newsfeed_items.all|length %}
+						<div class="box-title">
+							Últimas atualizações: <a href="#">(direto do nosso blog)</a>
 						</div>
-					</li>
-					{% endfor %}
+
+						{% for nitem in newsfeed_items|order_by:'-date'|slice:':5' %}
+						<li>
+							<div class="content" onClick="window.location.href='{{nitem.link}}'">
+								{% if nitem.thumbnail %}
+									<img width="100" src="{{ MEDIA_URL }}{{ nitem.thumbnail }}" class="main-img">
+								{% endif %}
+								<div class="text">
+									<span class="title">{{ nitem.date }}, {{ nitem.title }}<br></span>
+									{{ nitem.description|safe }}
+								</div>
+							</div>
+						</li>
+						{% endfor %}
+					{% endif %}
 				</div>
 				<!-- end newsfeed -->
 			</div>
