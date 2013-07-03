@@ -9,7 +9,7 @@
 
 @CLOUD_BG: url("/static/images/cloud.png");
 
-@font-face { .fontface('FredokaOne', 400); }
+// @font-face { .fontface('FredokaOne', 400); }
 @font-face { .fontface('OpenSans', 400); }
 @font-face { .fontface('PatuaOne', 400); }
 @font-face { .fontface('GochiHand', 400); }
@@ -54,6 +54,22 @@ body {
 h1, h2, h3, h4 {
 	font-family: 'PatuaOne';
 	font-weight: bold;
+}
+
+
+#under-const {
+	right: 0; left: 0; top: 0;
+	position: absolute;
+
+	background: #F41;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 5px;
+	box-shadow: 0 0 5px black;
+	cursor: pointer;
+
+	span { font-weight: normal; }
 }
 
 /******************************************************************************/
@@ -206,7 +222,7 @@ header {
 			cursor: pointer;
 			position: relative;
 			right: 25px;
-			margin-top: -3px;
+			top: -4px;
 		}
 	}
 

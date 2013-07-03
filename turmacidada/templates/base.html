@@ -23,20 +23,25 @@
 		<meta property="fb:app_id" content="7363627862327638" />
 		<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico"></link>
 
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
 		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
 		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fonts.css"></link>
 		{% render_block "cssbefore" %}
 		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
 		{% render_block "css" %}
+		<style>
+
+		</style>
 
 </head>
 
 {% getBackgroundImage as bg %}
 <body class="{{ bg.header_color }}">
 	<img onerror='this.style.display = "none"' src="{{ MEDIA_URL }}{{ bg.file }}" class="page-bg"></img>
-
+	
+	<div class="hide" onclick="$(this).fadeOut('slow')" id="under-const"><i class="icon-warning-sign"></i> Site em Construção <span>(clique para ocultar)</span></div>
+	
 	<header>
 		<div class="logo" onClick="location.href='/'">
 			<img src="{{ STATIC_URL }}images/logo_small.png"/>
@@ -89,6 +94,8 @@
 </html>
 	{% render_block "js" %}
 	<script type="text/javascript">
+	$(document).ready(function () { $('#under-const').slideDown(); });
+
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-39800268-1']);
   _gaq.push(['_trackPageview']);
