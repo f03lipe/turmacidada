@@ -32,7 +32,7 @@ else:
 	DEBUG = False
 	TEMPLATE_DEBUG = False
 
-# DEBUG = False
+DEBUG = False
 # TEMPLATE_DEBUG = True
 ##########
 
