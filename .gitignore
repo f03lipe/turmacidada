@@ -16,3 +16,5 @@ turmacidada/about
 
 *.pyc
 *~
+
+*.sublime-workspace

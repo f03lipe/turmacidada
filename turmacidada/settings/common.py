@@ -25,13 +25,15 @@ except NameError:
 
 ########## DEBUG CONFIGURATION
 # Disable debugging by default.
-if environ.get('DEBUG') == 'True':
+if environ.get('DEBUG') in ('True', '1'):
 	DEBUG = True
+	TEMPLATE_DEBUG = True
 else:
 	DEBUG = False
+	TEMPLATE_DEBUG = False
 
 # DEBUG = False
-TEMPLATE_DEBUG = True
+# TEMPLATE_DEBUG = True
 ##########
 
 ########## PATH CONFIGURATION
