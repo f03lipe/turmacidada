@@ -1,5 +1,6 @@
 # -*- coding: utf8 -*-
-"""Settings and globals for development environments."""
+"""Settings and globals for development environments.
+This gets executed first."""
 
 print "Executing configuration file dev.py"
 
@@ -30,6 +31,7 @@ DATABASES = {
 }
 
 ########## END DATABASE CONFIGURATION
+
 
 
 ########## S3 CONFIGURATION (uncomment to use S3 locally)

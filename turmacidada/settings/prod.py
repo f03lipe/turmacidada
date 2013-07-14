@@ -1,6 +1,7 @@
 # -*- coding: utf8 -*-
 """Settings and globals for production environments.
-Meant to be executed inside heroku only."""
+Meant to be executed inside heroku only.
+This gets executed first."""
 
 print "Executing configuration file prod.py"
 

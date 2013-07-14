@@ -23,6 +23,11 @@ except NameError:
 	MIDDLEWARE_CLASSES = []
 #####
 
+
+# Introduced in Django 1.5
+ALLOWED_HOSTS = ['turmacidada.herokuapp.com', 'www.turmacidada.org', 'turmacidada.org', 'localhost', '127.0.0.1']
+
+
 ########## DEBUG CONFIGURATION
 # Disable debugging by default.
 if environ.get('DEBUG') in ('True', '1'):
@@ -32,7 +37,7 @@ else:
 	DEBUG = False
 	TEMPLATE_DEBUG = False
 
-DEBUG = False
+# DEBUG = False
 # TEMPLATE_DEBUG = True
 ##########
 
@@ -57,10 +62,6 @@ sys.path.append(SITE_ROOT)
 sys.path.append(normpath(join(DJANGO_ROOT, 'apps')))
 sys.path.append(normpath(join(DJANGO_ROOT, 'libs')))
 ########## END PATH CONFIGURATION
-
-
-
-
 
 
 
