@@ -31,7 +31,6 @@
 		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
 		{% render_block "css" %}
 		<style>
-
 		</style>
 
 </head>
@@ -56,17 +55,9 @@
 			<a class="" href="{{ sn.facebook }}"><i class="icon-facebook"></i></a>
 			<a class="" href="{{ sn.twitter }}"><i class="icon-twitter"></i></a>
 			<a class="" href="{{ sn.gplus }}"><i class="icon-google-plus"></i></a>
-
 		</div>
-
-<!-- 		<div class="social-btns">
-			<a href="{{ sn.facebook }}" class="spriteD-Facebook"></a>
-			<a href="{{ sn.vimeo }}" class="spriteD-Vimeo"></a>
-			<a href="{{ sn.twitter }}" class="spriteD-Twitter"></a>
-			<a href="{{ sn.flickr }}" class="spriteD-Flickr"></a>
-			<a href="{{ sn.rss }}" class="spriteD-Rss"></a>
-		</div> -->
-
+	
+		{% comment %}
 		<div class="upper-line">
 			{% language_chooser "language_chooser.html" %}
 			<form class="search" method="get" action="/search">
@@ -74,6 +65,7 @@
 				<i class="icon-search" onClick="$('form.search').submit()"></i>
 			</form>
 		</div>
+		{% endcomment %}
 
 		<nav>
 			{% show_menu 1 %}

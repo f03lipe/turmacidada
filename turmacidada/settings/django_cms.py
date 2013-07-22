@@ -56,60 +56,6 @@ INSTALLED_APPS += (
 # 	's3cache',
 )
 
-"""
-# basic django-cms only
-# DON'T ADD ANYTHING HERE!
-INSTALLED_APPS = (
-	'cms',
-#	'mptt',
-	'reversion',
-#	'south', 	# already added
-	'appmedia',
-	'menus',
-)
-
-# admin interface related apps
-INSTALLED_APPS += (
-#	'django-menus',
-	'haystack',					# for search
-	'django.contrib.admin',
-	'django.contrib.admindocs',
-)
-
-# application related apps
-INSTALLED_APPS += (
-	'turmacidada',				# the project
-	'turmacidada.website',		# the project's app
-#	'filer',
-#	'tinymce',
-	'easy_thumbnails',
-)
-
-INSTALLED_APPS += (
-	'sekizai',					# for template functionallity: "addtoblock" etc
-	'django_cleanup',
-	'cms.plugins.file',
-	'cms.plugins.flash',
-	'cms.plugins.googlemap',
-	'cms.plugins.link',
-	'cms.plugins.picture',
-	'cms.plugins.snippet',
-	'cms.plugins.teaser',
-	'cms.plugins.text',
-	'cms.plugins.video',
-	'cms.plugins.twitter',
-)
-
-# storage related
-INSTALLED_APPS += (
-	'storages',
-#	'memcache',
-#	'boto',
-#	'compressor',
-	's3cache',
-)
-"""
-
 # filer plugin
 # INSTALLED_APPS += (
 # 	'cmsplugin_filer_file',
