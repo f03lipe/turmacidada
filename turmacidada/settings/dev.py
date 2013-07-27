@@ -16,7 +16,7 @@ from urlparse import urlparse, uses_netloc
 # EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 ########## END EMAIL CONFIGURATION
 
-DEBUG = True
+DEBUG = False
 
 ########## DATABASE CONFIGURATION
 DATABASES = {

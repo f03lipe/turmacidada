@@ -23,9 +23,14 @@ except NameError:
 	MIDDLEWARE_CLASSES = []
 #####
 
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 # Introduced in Django 1.5
-ALLOWED_HOSTS = ['turmacidada.herokuapp.com', 'www.turmacidada.org', 'turmacidada.org', 'localhost', '127.0.0.1']
+# ALLOWED_HOSTS = ['turmacidada.herokuapp.com', 'www.turmacidada.org', 'turmacidada.org', 'localhost', '127.0.0.1']
 
 
 ########## DEBUG CONFIGURATION
