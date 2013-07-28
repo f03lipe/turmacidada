@@ -1,1 +1,1 @@
-web: newrelic-admin run-program gunicorn turmacidada.wsgi
+web: gunicorn turmacidada.wsgi
