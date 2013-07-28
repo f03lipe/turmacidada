@@ -77,8 +77,9 @@
 	<div class="content">
 		{% block content %}{% endblock %}
 	</div>
-
+	{% comment %}
 	{% include "projectslist.html" %}
+	{% endcomment %}
 	{% include "footer.html" %}
 
 	<script type="text/javascript" src="{{ STATIC_URL }}jquery.min.js"></script>
