@@ -2,10 +2,9 @@
 <footer>
 	<div class="container">
 		<div class="links">
-			<a href="/osite">sobre o site</a>
-			<a href="#">Imprensa</a>
-			<a href="/offices">Núcleos</a>
-			<a href="/blog">Blog</a>
+			{% for label, link in FOOTER_LINKS.iteritems %}
+				<a href="{{link}}">{{label}}</a>
+			{% endfor %}
 		</div>
 		<div class="info">
 			<div style="float: left; margin-top: 1px">

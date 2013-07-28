@@ -49,10 +49,10 @@ INSTALLED_APPS += (
 INSTALLED_APPS += (
  	'storages',
 	'memcache',
-	'haystack',
-	'tinymce',
+	'haystack', 	# to search
+	'tinymce',		
+#	'compressor', 	# to compress files
 # #	'boto',
-# #	'compressor',
 # 	's3cache',
 )
 
@@ -64,6 +64,17 @@ INSTALLED_APPS += (
 # 	'cmsplugin_filer_teaser',
 # 	'cmsplugin_filer_video',
 # )
+
+FOOTER_LINKS = {
+	'sobre o site': '/sobre',
+	'imprensa': '/imprensa',
+	'núcleos': '/nucleos',
+	'blog': 'http://turmacidadabrasil.tumblr.com'
+}
+
+########## HTML MINIFY CONFIGURATION
+HTML_MINIFY = True
+########## END HTML MINIFY CONFIGURATION
 
 ########## HAYSTACK CONFIGURATION
 from os.path import join, dirname, abspath
@@ -80,6 +91,7 @@ HAYSTACK_WHOOSH_PATH = join(DJANGO_ROOT, 'whoosh_index')
 
 # djang-cms installation process
 MIDDLEWARE_CLASSES = (
+    'htmlmin.middleware.HtmlMinifyMiddleware',
 	'django.middleware.common.CommonMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
@@ -103,12 +115,14 @@ gettext = lambda s: s
 
 LANGUAGES = [
 	('pt', gettext('Portuguese')),
-	('en', gettext('English')),
+#	('en', gettext('English')),
 #	('de', gettext('German')),
 #	('fe', gettext('French')),
 ]
 CMS_HIDE_UNTRANSLATED = False
-CMS_FRONTEND_LANGUAGES = ('pt', 'en')
+CMS_FRONTEND_LANGUAGES = (
+	'pt', 'en'
+)
 
 CMS_LANGUAGES = {
 	1: [
@@ -144,13 +158,14 @@ custom_context = {
 	'email': 'turmacidadabrasil@gmail.com',
 	'sn': {
 		'facebook': 'http://facebook.com/turmacidadabrasil',
-		'twitter': 'http://twitter.com',
-		'vimeo': 'http://vimeo.com',
+		'twitter': 'http://twitter.com/turmacidada',
+#		'vimeo': 'http://vimeo.com',
 		'google-plus': 'http://+.google.com',
-		'flickr': 'http://flickr.com',
-		'rss': 'http://turmacidada.tumblr.com/rss',
-		'blog': 'http://turmacidada.tumblr.com'
+		'flickr': 'http://www.flickr.com/photos/turmacidada',
+		'rss': 'http://turmacidadabrasil.tumblr.com/rss',
 	},
+	'blog': 'http://turmacidadabrasil.tumblr.com',
+	'FOOTER_LINKS': FOOTER_LINKS, 
 }
 ########## END CUSTOM CONTEXT
 

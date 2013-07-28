@@ -52,9 +52,11 @@
 		</div>
 
 		<div class="social-btns">
-			<a class="" href="{{ sn.facebook }}"><i class="icon-facebook"></i></a>
-			<a class="" href="{{ sn.twitter }}"><i class="icon-twitter"></i></a>
-			<a class="" href="{{ sn.gplus }}"><i class="icon-google-plus"></i></a>
+			{% for name, link in sn.iteritems %}
+				{% if link %}
+					<a href="{{link}}"><i class="icon-{{name}}"></i></a>
+				{% endif %}
+			{% endfor %}
 		</div>
 	
 		{% comment %}
@@ -82,12 +84,12 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}jquery.min.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}base.js"></script>
 	<script type="text/javascript" type="image/png" src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
-</body>
-</html>
 	{% render_block "js" %}
 	<script type="text/javascript">
-	$(document).ready(function () { $('#under-const').slideDown(); });
+	$('#under-const').slideDown();
+	</script>
 
+	<script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-39800268-1']);
   _gaq.push(['_trackPageview']);
@@ -98,3 +100,5 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+</body>
+</html>

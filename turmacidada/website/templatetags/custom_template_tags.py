@@ -1,5 +1,6 @@
 
 from django import template
+from django.conf import settings
 
 register = template.Library()
 
@@ -43,3 +44,8 @@ def getBackgroundImage(context):
 			del context['request'].session['idBgImg']
 		except: pass
 		return None
+
+@register.simple_tag
+def settings_value(name):
+	# http://stackoverflow.com/questions/433162/
+    return getattr(settings, name, "")
