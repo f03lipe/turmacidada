@@ -83,7 +83,7 @@ class TeamMember(models.Model):
 	avatar = models.ImageField(upload_to=fileNameGenerator('team/avatar_'), help_text='Upload the person\'s 140x185px avatar to appear on the website.')
 	birth = models.DateField(default=datetime.date(1990, 1, 1), help_text='This person\'s date of birth.')
 	job = models.CharField(max_length=30, help_text='The member\'s duty inside the organization. Be brief: 30 characters max.')
-	member_since = models.DateField(default=datetime.date(2007, 1, 1), help_text='When did this person joined the team?')
+	member_since = models.DateField(default=datetime.date.today(), help_text='When did this person joined the team?')
 	bio = models.TextField(max_length=200, blank=True, help_text='Place to insert a small bio of each member. 240 characters max.')
 
 	# filial (key)
