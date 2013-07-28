@@ -37,38 +37,41 @@
 	{% endaddtoblock %}
 
 	<div class="container below-nav">
-		<div class="box fullwidth">
+		<div class="row-fluid fullwidth">
 			<div class="page-text text-plugin">
 				{% placeholder "Texto" %}
 			</div>
 		</div>
-		<div class="box fullwidth">
-			<div class="page-text text-plugin" style="margin: 20px">
+		<div class="row-fluid fullwidth">
+			<div class="page-text text-plugin">
 				{% placeholder "GoogleMaps" %}
 			</div>
 		</div>
-	</div>
 
-	<div class="container" id="contact">
-		<div class="row-fluid">
+		<div class="row-fluid" id="contact">
 			<div class="span7">
 				<h2>Fale conosco!</h2>
 				<p>
-					Etiam rhoncus et in porttitor rhoncus sit dictumst arcu nisi, lacus mid rhoncus tristique parturient, nec. Integer integer! Et pulvinar magna, cum auctor augue! Dis turpis pid turpis, adipiscing et! A. Porta facilisis et est amet, magna dis. Ridiculus, enim porttitor lorem. Adipiscing augue? Vel rhoncus magna, diam, tempor est sed augue, amet dictumst diam, pellentesque. Mus sit pulvinar, magna! Sed proin scelerisque odio, habitasse, in ac a facilisis enim aenean ac tincidunt nascetur porta vut. Massa dis eu sagittis pulvinar. Mauris enim ut, nascetur ac quis tristique sit pulvinar pid platea habitasse, habitasse elementum eros! Ultrices mattis? Urna cum rhoncus ultrices rhoncus egestas elementum, quis purus quis amet cum massa natoque elementum auctor. Hac odio, amet? In adipiscing, mauris.
+					Nosso formulário está desabilitado no momento. :/<br>
+					Envie-nos email para <a href="mailto:{{ email }}">{{email}}</a>.
+				</p>
+				<h5>Encontrou problemas como site?</h5>
+				<p>
+					Se você tiver dúvidas ou sugestões sobre o funcionamento do site, notifique o nosso administrador: <a href="mailto:pires.a.felipe@gmail.com">pires.a.felipe AT gmail DOT com</a>.
 				</p>
 			</div>
 			<div class="span5">
 				<form class="form-horizontal">
 					<fieldset>
-						<input type="text" required placeholder="Your Name">
-						<input type="email" required placeholder="Your Email">		
-						<textarea rows="5" required style="width: 100%" placeholder="Your message goes here! :)"></textarea>
-						<button type="submit" onclick="return false;" class="btn btn-success" id="submit">
-							<strong>Submit</strong></button>
+						<input type="text" disabled required placeholder="Your Name">
+						<input type="email" disabled required placeholder="Your Email">		
+						<textarea rows="5" disabled required style="width: 100%" placeholder="Your message goes here! :)"></textarea>
+						<button type="submit" disabled onclick="return false;" class="btn btn-success" id="submit">
+							<strong>Submit</strong>
+						</button>
 						<h6>Your email adress is safe with us!</h6>
 					</fieldset>
 				</form>
-			</div>
 			</div>
 		</div>
 	</div>

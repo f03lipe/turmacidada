@@ -81,10 +81,10 @@ class TeamMember(models.Model):
 
 	name = models.CharField(max_length=50, help_text='Use a two-word name.')
 	avatar = models.ImageField(upload_to=fileNameGenerator('team/avatar_'), help_text='Upload the person\'s 140x185px avatar to appear on the website.')
-	age = models.CharField(max_length=20, help_text='The member\'s age as a string. Eg. "24 years-old" (ignore the quotes).')
+	birth = models.DateField(default=datetime.date(2007, 1, 1), help_text='This person\'s date of birth.')
 	job = models.CharField(max_length=30, help_text='The member\'s duty inside the organization. Be brief: 30 characters max.')
 	member_since = models.DateField(default=datetime.date(2007, 1, 1), help_text='When did this person joined the team?')
-	bio = models.TextField(max_length=240, help_text='Place to insert a small bio of each member. 240 characters max.')
+	bio = models.TextField(max_length=240, blank=True, help_text='Place to insert a small bio of each member. 240 characters max.')
 
 	# filial (key)
 	# ... ?
@@ -92,8 +92,6 @@ class TeamMember(models.Model):
 	def __unicode__(self):
 		return 'TeamMember %s (id: %s)' % (self.name, self.id)
 
-class TreeManager(models.Model):
-	pass
 
 ### Background's
 class PageBackground(models.Model):

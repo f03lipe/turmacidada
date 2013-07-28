@@ -79,6 +79,9 @@ input {
 	height: inherit !important; // fix bug
 }
 
+.inline { display: inline; }
+.inline-block { display: inline-block; }
+
 .row:not(.transparent), .row-fluid:not(.transparent) [class*="span"] {
 	// padding-top: 10px;
 	// padding-left: 25px;
@@ -101,7 +104,7 @@ input {
 // PAGE CONTENT BOXES
 .box, .row, .row-fluid {
 	.box-sizing();
-	margin-top: 10px;
+	margin-bottom: 20px;
 	background: white;
 	box-shadow: 0 0 5px rgba(0, 0, 0, .4);
 	position: relative;
@@ -377,7 +380,6 @@ header {
 footer {
 	left: 0; right: 0;
 	width: 100% !important;
-	margin-top: 25px;
 	margin-bottom: 25px;
 	z-index: 1;
 	position: relative;

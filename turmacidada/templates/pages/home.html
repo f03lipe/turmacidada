@@ -23,11 +23,12 @@
 		</script>
 	{% endaddtoblock %}
 
+	<div class="container below-nav">
 	<!-- slider -->
 	{% loadModelObjects "CarouselItem" as carousel_items %}
 	{% with citems=carousel_items|filter:'is_published=True' %}
 		{% if citems|length %}
-		<div class="container below-nav flexslider">
+			<div class="flexslider">
 				<ul class="slides">
 					{% for citem in citems|order_by:'-date_added' %}
 					<li>
@@ -38,16 +39,14 @@
 					</li>
 					{% endfor %}
 				</ul>
+			</div>
 		{% endif %}
 	{% endwith %}
-	</div>
 	<!-- end slider -->
 
 	<div class="banner" style="display: none">
 		clique e saiba como ajudar!
 	</div>
-
-	<div class="container">
 
 		<!-- vimeo and facebook -->
 		<div class="row-fluid transparent">
@@ -74,7 +73,7 @@
 					style=" background-color: white;"></div></div>
 		</div>
 		<!-- news -->
-		<div class="row-fluid box news transparent">
+		<div class="row-fluid news transparent">
 			{% loadModelObjects "NewsFeedItem" as newsfeed_items %}
 			{% if newsfeed_items.all|length %}
 				<div class="box-title">
