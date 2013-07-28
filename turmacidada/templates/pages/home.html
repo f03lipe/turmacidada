@@ -2,9 +2,7 @@
 {% load cms_tags sekizai_tags custom_template_tags %}
 
 {% block content %}
-	<div id="fb-root"></div>
 	<script>
-
 		(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
 	</script>
 
@@ -50,45 +48,61 @@
 	</div>
 
 	<div class="container">
-		<div class="row-fluid transparent">
-			<div class="span6">
-				<!-- newsfeed -->
-				<div class="box news">
-					{% loadModelObjects "NewsFeedItem" as newsfeed_items %}
-					{% if newsfeed_items.all|length %}
-						<div class="box-title">
-							Últimas atualizações: <a href="#">(direto do nosso blog)</a>
-						</div>
 
-						{% for nitem in newsfeed_items|order_by:'-date'|slice:':5' %}
-						<li>
-							<div class="content" onClick="window.location.href='{{nitem.link}}'">
-								{% if nitem.thumbnail %}
-									<img width="100" src="{{ MEDIA_URL }}{{ nitem.thumbnail }}" class="main-img">
-								{% endif %}
-								<div class="text">
-									<span class="title">{{ nitem.date }}, {{ nitem.title }}<br></span>
-									{{ nitem.description|safe }}
-								</div>
-							</div>
-						</li>
-						{% endfor %}
-					{% endif %}
-				</div>
-				<!-- end newsfeed -->
-			</div>
-			<div class="span6">
-				<iframe style="margin-bottom: 10px"
+		<!-- vimeo and facebook -->
+		<div class="row-fluid transparent">
+			<div class="span8">
+				<iframe
 					src="http://player.vimeo.com/video/25056574?portrait=0&amp;color=c8b3df"
-					width="388" height="236" frameborder="0"
+					width="640" height="392" frameborder="0"
 					webkitAllowFullScreen mozallowfullscreen allowFullScreen>
 				</iframe>
-				<div class="fb-like-box" data-href="http://www.facebook.com/pages/Programa-Turma-Cidadã/210131722332869" data-width="450"
-					 data-height="250" data-show-faces="true" data-stream="false" data-header="false"
-					 style="background-color: white">
-				</div>
 			</div>
+			<div class="span4" style="width: 287px; margin-left: 40px">
+				<h1 style="color: white; text-shadow: 0 1px 3px rgba(0,0,0,.4);">Estamos nas redes sociais!</h1>
+				<div id="fb-root"></div>
+				<div id="like-box"
+					class="fb-like-box fb-like"
+					data-href="http://www.facebook.com/pages/Programa-Turma-Cidadã/210131722332869"
+					data-height="290"
+					data-show-faces="true"
+					data-colorscheme="light"
+					connections="15"
+					data-stream="false"
+					data-header="false"
+					data-border-color="#FFF"
+					style=" background-color: white;"></div></div>
 		</div>
+		<!-- news -->
+		<div class="row-fluid box news transparent">
+			{% loadModelObjects "NewsFeedItem" as newsfeed_items %}
+			{% if newsfeed_items.all|length %}
+				<div class="box-title">
+					Nossas últimas atualizações: <a href="{{blog_url}}">(siga o nosso blog)</a>
+				</div>
+
+				{% for nitem in newsfeed_items|order_by:'-date'|slice:':5' %}
+				<li>
+					<div class="content" onClick="window.location.href='{{nitem.link}}'">
+						<div class="left">
+							<div class="blackout"></div>
+							<div class="block">
+								
+							<img width=200 onerror='this.style.display = "none"' src="{{ MEDIA_URL }}{{ nitem.thumbnail }}">
+							</div>
+							<div class="date"><h4>{{ nitem.date }}</h4></div>
+						</div>
+
+						<div class="text">
+							<h3 class="title">{{ nitem.title }}<br></h3>
+							{{ nitem.description|safe }}
+						</div>
+					</div>
+				</li>
+				{% endfor %}
+			{% endif %}
+		</div>
+
 	</div>
 
 	<h6 style="display: none">

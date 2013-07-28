@@ -164,7 +164,7 @@ custom_context = {
 		'flickr': 'http://www.flickr.com/photos/turmacidada',
 		'rss': 'http://turmacidadabrasil.tumblr.com/rss',
 	},
-	'blog': 'http://turmacidadabrasil.tumblr.com',
+	'blog_url': 'http://turmacidadabrasil.tumblr.com',
 	'FOOTER_LINKS': FOOTER_LINKS, 
 }
 ########## END CUSTOM CONTEXT
