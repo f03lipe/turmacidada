@@ -5,37 +5,40 @@
 
 	{% addtoblock "css" %}
 	<style>
-
 		.team-member {
-			display: inline-block;
+			list-style: none;
+			float: left;
 			margin-bottom: 20px;
-			margin-right: -4px;
-
 			width: 450px;
+			min-height: 190px;
 			padding: 10px;
 			background: white;
 			box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 		}
-		.team-member:nth-child(odd) { margin-right: 17px; }
+		.team-member:nth-child(odd) { float: right; }
 
 		.team-member .member-info {
 			display: inline-block;
 			vertical-align: top;
-			padding: 10px;
-			width: 280px;
+			padding: 10px 10px 0;
+			width: 290px;
 			cursor: default;
 		}
 
 		.team-member .member-info h3,
 		.team-member .member-info h4,
 		.team-member .member-info h5 {
-			font-family: MuseoSans, "Helvetica Nue", Helvetica, Arial, sans-serif;
-			font-weight: normal;
-			margin: 5px 0 0 5px;
+			font-family: museo-sans;
+			margin: 4px 0;
 		}
 
 		.team-member img {
-			box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+			margin-top: 2px;
+			box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+		}
+
+		.team-member p {
+			margin-bottom: 0;
 		}
 
 	</style>
@@ -47,20 +50,19 @@
 				{% placeholder "TextoIntrodutorio" %}
 			</div>
 		</div>
-	</div>
 
-	<div class="container">
 		{% loadModelObjects "TeamMember" as teammember %}
 		{% for person in teammember|order_by:'member_since' %}
-		<div class="team-member">
-			<img src="{{ MEDIA_URL }}{{ person.avatar }}" "http://placehold.it/140x185.png" />
+		
+		<li class="team-member">
+			<img width=140 height=185 src="{{ MEDIA_URL }}{{ person.avatar }}" "http://placehold.it/140x185.png" />
 			<div class="member-info">
 				<h4>{{ person.name }}</h4>
-				<h4>{{ person.age }}</h4>
-				<h4>{{ person.job }}</h4>
-				<h5>{{ person.bio }}</h5>
+				<h5>{{ person.age }} anos</h5>
+				<h5>{{ person.job }}</h5>
+				<p>{{ person.bio }}</p>
 			</div>
-		</div>
+		</li>
 		{% endfor %}
 	</div>
 

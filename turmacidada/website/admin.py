@@ -144,15 +144,15 @@ class ProjectItemAdmin(admin.ModelAdmin):
 class TeamMemberForm(ModelForm):
 	class Meta:
 		model = TeamMember
-	clean_avatar = assertInResolution('avatar', (140, 700), (185,925))
+	clean_avatar = assertInResolution('avatar', (139, 141), (184,186))
 	def clean_name(self):
 		name = self.cleaned_data.get('name')
 		return name
 
 class TeamMemberAdmin(admin.ModelAdmin):
 	form = TeamMemberForm
-	list_display = ('name', 'job', 'age', 'member_since', snippetGetter('bio', 40), thumbnailDisplayer('avatar'))
-	search_fields = ('name', 'member_since', 'job', 'age', 'bio')
+	list_display = ('name', 'job', 'birth', 'member_since', snippetGetter('bio', 40), thumbnailDisplayer('avatar'))
+	search_fields = ('name', 'member_since', 'job', 'birth', 'bio')
 	ordering = ('member_since', )
 
 ###############################################################################
