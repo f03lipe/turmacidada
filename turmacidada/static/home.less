@@ -28,81 +28,79 @@
 
 	li {
 		list-style-type: none;
-		height: 50px;
-		height: auto;
-		display: table;
-		
-		.content {
-			& > * {
-				display: inline-block;
-				vertical-align: top;
-			}
-
-			margin: 15px 15px 0 15px; /* Leave bottom margin for child elements */
-			font-size: 14px;
-			
-			// .left variables (here so that .text can see)
-			@width: 170px;
-			@height: @width; // assume square proportions
-			@vheight: 120px; // visible height
-			.left {
-				margin-left: 29px;
-				.block {
-					position: absolute;
-					left: 0; top: -((@height - @vheight)/2);
-					width: @width;
-					line-height: @height;
-				}
-
-				.blackout {
-					.block();
-					background: #888;
-					height: @height;
-					.transition(.2s);
-				}
-
-				img { opacity: .5; border-radius: 0; }
-
-				&:hover {
-					.blackout { background: #444; }
-					border-radius: 0;
-					img { border-radius: 0;  }
-				}
-
-				.date {
-					.block();
-					top: 0;
-					line-height: @vheight;
-					text-align: center;
-					color: white;
-					& > * {
-						display: inline;
-						font-size: 18px;
-						text-shadow: 0 1px 5px rgba(0,0,0,.8);
-					}
-				}
-
-				width: @width;
-				height: @vheight;
-				position: relative;
-				border-radius: 0;
-				overflow: hidden;
-				cursor: pointer;
-
-				box-shadow: 0 0 5px rgba(0,0,0,.6);
-			}
-
-			.text {
-				width: 700px;
-				margin-left: 0;
-				padding-left: 10px;
-				// color: white;
-				background: rgba(255,255,255,1);
-				min-height: @vheight;
-				// text-shadow: 0 0 3px rgba(0,0,0,.3);
-			}
-
+		display: block;
+	
+		& > * {
+			display: inline-block;
+			vertical-align: top;
 		}
+		position: relative;
+
+		margin: 2px 0 0; /* Leave bottom margin for child elements */
+		
+		// .left variables (here so that .text can see)
+		@width: 170px;
+		@height: @width; // assume square proportions
+		@vheight: 120px; // visible height
+		cursor: pointer;
+		
+		.left {
+			.block {
+				position: absolute;
+				left: 0; top: -((@height - @vheight)/2);
+				width: @width;
+				line-height: @height;
+			}
+
+			.blackout {
+				.block();
+				background: #888;
+				height: @height;
+				.transition(.2s);
+			}
+
+			img { opacity: .5; border-radius: 0; }
+
+			&:hover {
+				.blackout { background: #444; }
+				border-radius: 0;
+				img { border-radius: 0;  }
+			}
+
+			.date {
+				.block();
+				top: 0;
+				line-height: @vheight;
+				text-align: center;
+				color: white;
+				& > * {
+					display: inline;
+					font-size: 18px;
+					text-shadow: 0 1px 5px rgba(0,0,0,.8);
+				}
+			}
+
+			width: @width;
+			height: @vheight;
+			position: absolute; /* Inside relative element. */
+			overflow: hidden;
+			float: left;
+			box-shadow: 0 0 5px rgba(0,0,0,.6);
+		}
+
+		.text {
+			margin-left: @width;
+			padding: 0 20px 10px 20px;
+			background: rgba(255,255,255,1);
+			min-height: @vheight;
+			font: 16px/19px museo-sans;
+			// text-shadow: 0 0 3px rgba(0,0,0,.3);
+			.box-sizing();
+			box-shadow: 0 0 3px rgba(0,0,0,.3);
+		}
+
+		h3 { margin: 3px 0; font-family: museo; }
+
 	}
 }
 

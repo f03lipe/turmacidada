@@ -78,25 +78,23 @@
 			{% loadModelObjects "NewsFeedItem" as newsfeed_items %}
 			{% if newsfeed_items.all|length %}
 				<div class="box-title">
-					Nossas últimas atualizações: <a href="{{blog_url}}">(siga o nosso blog)</a>
+					Últimas atualizações d<a href="{{blog_url}}">o Blog</a>:
 				</div>
 
 				{% for nitem in newsfeed_items|order_by:'-date'|slice:':5' %}
-				<li>
-					<div class="content" onClick="window.location.href='{{nitem.link}}'">
-						<div class="left">
-							<div class="blackout"></div>
-							<div class="block">
-								
-							<img width=200 onerror='this.style.display = "none"' src="{{ MEDIA_URL }}{{ nitem.thumbnail }}">
-							</div>
-							<div class="date"><h4>{{ nitem.date }}</h4></div>
+				<li onClick="window.location.href='{{nitem.link}}'">
+					<div class="left">
+						<div class="blackout"></div>
+						<div class="block">
+							
+						<img width=200 onerror='this.style.display = "none"' src="{{ MEDIA_URL }}{{ nitem.thumbnail }}">
 						</div>
+						<div class="date"><h4>{{ nitem.date }}</h4></div>
+					</div>
 
-						<div class="text">
-							<h3 class="title">{{ nitem.title }}<br></h3>
-							{{ nitem.description|safe }}
-						</div>
+					<div class="text">
+						<h3 class="title">{{ nitem.title }}<br></h3>
+						{{ nitem.description|safe }}
 					</div>
 				</li>
 				{% endfor %}
