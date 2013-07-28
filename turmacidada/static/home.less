@@ -59,7 +59,7 @@
 				.transition(.2s);
 			}
 
-			img { .blur(); opacity: .5; border-radius: 0; .transition(.2s); }
+			img { .blur(1.5px); opacity: .5; border-radius: 0; .transition(.2s); }
 
 			&:hover {
 				.blackout { background: #444; }
@@ -91,6 +91,7 @@
 		.text {
 			margin-left: @width;
 			padding: 0 20px 10px 20px;
+			min-width: 790px;
 			background: rgba(255,255,255,1);
 			min-height: @vheight;
 			font: 16px/19px museo-sans;
