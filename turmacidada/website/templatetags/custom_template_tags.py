@@ -1,4 +1,6 @@
 
+# -*- encoding: utf8 -*-
+
 from django import template
 from django.conf import settings
 
@@ -25,6 +27,13 @@ def order_by(obj, arg):
 def filter(obj, arg):
 	# Filters objects from a manager object in the template.
 	return obj.filter(**eval('dict(%s)' % arg))
+
+@register.filter
+def trans_month(obj):
+	return [
+		'Janeiro', 'Fevereiro', 'Março', 'Abril',
+		'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
+		'Outubro', 'Novembro', 'Dezembro'][obj]
 
 @register.assignment_tag(takes_context=True)
 def getBackgroundImage(context):
