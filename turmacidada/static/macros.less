@@ -82,6 +82,24 @@
     box-sizing:         @type;
 }
 
+.blur (@p: 3px) {
+  -webkit-filter: blur(@p);
+  -moz-filter: blur(@p);
+  -o-filter: blur(@p);
+  -ms-filter: blur(@p);
+  filter: blur(@p);
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
+}
+
+.unblur () {
+  -webkit-filter: blur(0);
+  -moz-filter: blur(0);
+  -o-filter: blur(0);
+  -ms-filter: blur(0);
+  filter: blur(0);
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+}
+
 /*---------------------------------------------------
     LESS Elements 0.9
   ---------------------------------------------------

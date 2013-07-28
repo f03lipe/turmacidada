@@ -59,13 +59,13 @@
 				.transition(.2s);
 			}
 
-			img { opacity: .5; border-radius: 0; }
+			img { .blur(); opacity: .5; border-radius: 0; .transition(.2s); }
 
 			&:hover {
 				.blackout { background: #444; }
 				border-radius: 0;
-				img { border-radius: 0;  }
 			}
+			&:hover { img { .unblur(); } }
 
 			.date {
 				.block();
@@ -94,6 +94,7 @@
 			background: rgba(255,255,255,1);
 			min-height: @vheight;
 			font: 16px/19px museo-sans;
+			color: #444;
 			// text-shadow: 0 0 3px rgba(0,0,0,.3);
 			.box-sizing();
 			box-shadow: 0 0 3px rgba(0,0,0,.3);
