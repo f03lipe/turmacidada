@@ -57,11 +57,7 @@
 		<li class="team-member">
 			<img width=140 height=185 src="{{ MEDIA_URL }}{{ person.avatar }}" "http://placehold.it/140x185.png" />
 			<div class="member-info">
-				<h4 class="inline-block">{{ person.name }}</h4><h5 class="inline-block">,
-				{% if person.age < 200 %}
-					{{ person.age }} anos
-				{% else %} idade desconhecida
-				{% endif %} </h5>
+				<h4 class="inline-block">{{ person.name }}</h4><h5 class="inline-block">, {% if person.age < 200 %}{{ person.age }} anos {% else %}idade desconhecida{% endif %} </h5>
 				<h5>{{ person.job }}</h5>
 				<h5>desde {{ person.member_since.month|trans_month|lower }} de {{ person.member_since.year }}</h5>
 				<p>{{ person.bio }}</p>
