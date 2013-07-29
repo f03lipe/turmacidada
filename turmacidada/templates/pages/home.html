@@ -24,29 +24,24 @@
 	{% endaddtoblock %}
 
 	<div class="container below-nav">
-	<!-- slider -->
-	{% loadModelObjects "CarouselItem" as carousel_items %}
-	{% with citems=carousel_items|filter:'is_published=True' %}
-		{% if citems|length %}
-			<div class="flexslider">
-				<ul class="slides">
-					{% for citem in citems|order_by:'-date_added' %}
-					<li>
-						{% if citem.description %}
-							<p class="flex-caption">{{ citem.description }}</p>
-						{% endif %}
-						<a {{ citem.link|yesno:"href=," }}"{{ citem.link }}"><img src="{{ MEDIA_URL }}{{ citem.image }}"></a>
-					</li>
-					{% endfor %}
-				</ul>
-			</div>
-		{% endif %}
-	{% endwith %}
-	<!-- end slider -->
-
-	<div class="banner" style="display: none">
-		clique e saiba como ajudar!
-	</div>
+		<!-- slider -->
+		{% loadModelObjects "CarouselItem" as carousel_items %}
+		{% with citems=carousel_items|filter:'is_published=True' %}
+			{% if citems|length %}
+				<div class="flexslider">
+					<ul class="slides">
+						{% for citem in citems|order_by:'-date_added' %}
+						<li>
+							{% if citem.description %}
+								<p class="flex-caption">{{ citem.description }}</p>
+							{% endif %}
+							<a {{ citem.link|yesno:"href=," }}"{{ citem.link }}"><img src="{{ MEDIA_URL }}{{ citem.image }}"></a>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+		{% endwith %}
 
 		<!-- vimeo and facebook -->
 		<div class="row-fluid transparent">

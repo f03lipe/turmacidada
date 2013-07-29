@@ -88,7 +88,7 @@ class TeamMember(models.Model):
 
 	# filial (key)
 	# ... ?
-	
+
 	def age(self):
 		# http://stackoverflow.com/questions/2217488
 		today = datetime.date.today()
@@ -103,6 +103,7 @@ class TeamMember(models.Model):
 
 	def __unicode__(self):
 		return 'TeamMember %s (id: %s)' % (self.name, self.id)
+
 
 
 ### Background's

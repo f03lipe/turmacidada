@@ -33,7 +33,7 @@ def trans_month(obj):
 	return [
 		'Janeiro', 'Fevereiro', 'Março', 'Abril',
 		'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
-		'Outubro', 'Novembro', 'Dezembro'][obj]
+		'Outubro', 'Novembro', 'Dezembro'][obj-1]
 
 @register.assignment_tag(takes_context=True)
 def getBackgroundImage(context):

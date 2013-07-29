@@ -66,9 +66,9 @@ INSTALLED_APPS += (
 # )
 
 FOOTER_LINKS = {
-	'sobre o site': '/sobre',
+	'sobre o site': '/site',
 	'imprensa': '/imprensa',
-	'núcleos': '/nucleos',
+#	'núcleos': '/nucleos',
 	'blog': 'http://turmacidadabrasil.tumblr.com'
 }
 
@@ -151,6 +151,8 @@ CMS_TEMPLATES = (
 		('pages/contact.html', 'Contact'),
 )
 
+import datetime
+
 ########## CUSTOM CONTEXT
 custom_context = {
 	'address': 'Rua Gal. Canabarro, 552, sala 3, Campus 3. Maracanã, Rio de Janeiro ',
@@ -165,7 +167,8 @@ custom_context = {
 		'rss': 'http://turmacidadabrasil.tumblr.com/rss',
 	},
 	'blog_url': 'http://turmacidadabrasil.tumblr.com',
-	'FOOTER_LINKS': FOOTER_LINKS, 
+	'FOOTER_LINKS': FOOTER_LINKS,
+	'TODAY': datetime.date.today()
 }
 ########## END CUSTOM CONTEXT
 

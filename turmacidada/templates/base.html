@@ -41,16 +41,18 @@
 	
 	<div class="hide" onclick="$(this).fadeOut('slow')" id="under-const"><i class="icon-warning-sign"></i> Site em Construção <span>(clique para ocultar)</span></div>
 	
+	<!-- header -->
 	<header>
+		<!-- logo -->
 		<div class="logo" onClick="location.href='/'">
 			<img src="{{ STATIC_URL }}images/logo_small.png"/>
 			<div class="name">Turma<br>Cidadã<span>Brasil</span></div>
 		</div>
-
+		<!-- header slogan -->
 		<div class="slogan">
-			Pensar globalmente,<br> agir localmente e conviver<br> transculturalmente <!-- Empowering the Comunity -->
+			Pensar globalmente,<br> agir localmente e conviver<br> transculturalmente
 		</div>
-
+		<!-- social buttons -->
 		<div class="social-btns">
 			{% for name, link in sn.iteritems %}
 				{% if link %}
@@ -58,8 +60,8 @@
 				{% endif %}
 			{% endfor %}
 		</div>
-	
 		{% comment %}
+		<!-- language chooser -->
 		<div class="upper-line">
 			{% language_chooser "language_chooser.html" %}
 			<form class="search" method="get" action="/search">
@@ -68,20 +70,22 @@
 			</form>
 		</div>
 		{% endcomment %}
-
+		<!-- navigation links -->
 		<nav>
+
 			{% show_menu 1 %}
 		</nav>
 	</header>
-	
+
+	<!-- page content -->
 	<div class="content">
 		{% block content %}{% endblock %}
 	</div>
 	{% comment %}
 	{% include "projectslist.html" %}
 	{% endcomment %}
+	<!-- footer -->
 	{% include "footer.html" %}
-
 	<script type="text/javascript" src="{{ STATIC_URL }}jquery.min.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}base.js"></script>
 	<script type="text/javascript" type="image/png" src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
