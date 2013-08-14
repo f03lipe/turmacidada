@@ -1,0 +1,84 @@
+{% load cms_tags menu_tags sekizai_tags custom_template_tags thumbnail i18n %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'> 
+	<title>Sobre o site</title>
+
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}base.css"></link>
+	<link rel="stylesheet" type="text/css" href="://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css"></link>
+	<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico"></link>
+	
+	{% render_block "css" %}
+
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
+	<script type="text/javascript" src="{{ STATIC_URL }}jquery.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}base.js"></script>
+	<script type="text/javascript" type="image/png" src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+	<style>
+		body {
+			font-family: Arial;
+		}
+		.wrapper {
+			position: relative;
+			width: 800px;
+			margin: 0 auto;
+			top: 50px;
+			z-index: 10;
+			height: 500px;
+		}
+
+		.wrapper {
+			color: #fff;
+			text-shadow: 0 0 10px rgba(0, 0, 0, .4);
+
+		}
+
+		h1 {
+			font: bold 140px 'LondrinaShadow', 'PatuaOne', Arial;
+			text-align: middle;
+		}
+
+		a:hover { text-decoration: none; }
+		a:link, a:active, a:visited { color: #4CF; }
+		a:hover { color: #0AC; }
+
+		.description {
+			color: #fff;
+			text-shadow: 0 0 5px rgba(0, 0, 0, .4);
+			font:  24px "museo";
+		}
+
+		.navbar {
+			padding: 10px 0;
+			font: bold 30px "PatuaOne";
+			vertical-align: middle;
+			color: white;
+			text-transform: uppercase
+		}
+
+	</style>
+
+</head>
+<body>
+	<img src="{{ STATIC_URL }}images/rio_bg1.png" class="page-bg" />	
+	
+	<div class="container">
+	</div>
+
+	<div class="wrapper">
+		<div>
+			<h1>Oi! tudo bom?</h1>
+		</div>
+		<div class="description">
+			Meu nome é <strong>Felipe Aragão Pires</strong>, sou do Rio de Janeiro. Esse site foi desenhado e desenvolvido por mim como parte do meu trabalho voluntário para a <strong>ONG Turma Cidadã</strong>. Fiz ele usando <a href="https://www.djangoproject.com/">Django</a> (framework web em Python) e <a href="https://www.django-cms.org/en/">django-cms</a> (plugin para administrar o conteúdo do site), além de <a href="https://raw.github.com/f03lipe/turmacidada/master/requirements.txt">uma longa lista de pacotes</a>. O site é hospedado no <a href="http://heroku.com">HEROKU</a> e os arquivos no <a href="http://aws.amazon.com/s3/">Amazon S3</a>.
+			O código fonte está disponível na minha conta do <a href="http://github.com/f03lipe"><i class="icon-github"></i> Github</a> <strong>#❤OpenSource</strong>. <i class="icon-laptop"></i> 
+			<br>Me segue no <a href="http://twitter.com/f03lipe"><i class="icon-twitter"></i> twitter</a>.<br>
+			<h6>(<a href="/">voltar para o site</a>)</h6>
+		</div>
+	</div>
+
+</body>
+</html>
