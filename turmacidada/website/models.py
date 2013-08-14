@@ -90,6 +90,7 @@ class TeamMember(models.Model):
 	# ... ?
 
 	def age(self):
+		# This is called inside the templates.
 		# http://stackoverflow.com/questions/2217488
 		today = datetime.date.today()
 		try: 

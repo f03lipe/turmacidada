@@ -16,6 +16,8 @@ urlpatterns = patterns('',
 	(r'^robots\.txt$', RedirectView.as_view(url='/static/robots.txt')),
 	(r'^robots\.txt$', RedirectView.as_view(url='/static/robots.txt')),
 	(r'^blog', RedirectView.as_view(url='http://turmacidada.tumblr.com')),
+	(r'^osite', TemplateView.as_view(template_name="osite.html")),
+	
 
 	# cms related
 	url(r'^admin/', include(admin.site.urls)),

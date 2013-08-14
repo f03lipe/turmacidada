@@ -13,6 +13,8 @@
 @font-face { .fontface('OpenSans', 400); }
 @font-face { .fontface('PatuaOne', 400); }
 @font-face { .fontface('GochiHand', 400); }
+@font-face { .fontface('LondrinaSolid', 'Regular'); }
+@font-face { .fontface('LondrinaShadow', 'Regular'); }
 @font-face { .fontface('fontawesome'); }
 
 /******************************************************************************/
@@ -150,7 +152,7 @@ input {
 
 // PAGE BACKGROUND
 .page-bg {
-	.user_select(none);
+	.user-select(none);
 	// Set rules to fill background
 	min-height: 100%;
 	min-width: 1280px;
@@ -185,11 +187,11 @@ header {
 
 		img, .name {
 			display: inline-block;
-			.user_select(none);
+			.user-select(none);
 		}
 
 		.name {	
-			font: 47px/44px 'PatuaOne';
+			font: 47px/44px 'LondrinaSolid', 'PatuaOne', Arial;
 			margin-left: 10px;
 			margin-top: 5px;
 			vertical-align: middle;
