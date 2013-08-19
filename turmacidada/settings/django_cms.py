@@ -66,7 +66,7 @@ INSTALLED_APPS += (
 # )
 
 FOOTER_LINKS = {
-	'sobre o site': 'osite',
+	'sobre o site': '/osite',
 	'imprensa': '/imprensa',
 #	'núcleos': '/nucleos',
 	'blog': 'http://turmacidadabrasil.tumblr.com'
