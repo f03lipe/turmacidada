@@ -146,6 +146,7 @@ CMS_TEMPLATES = (
 		('pages/about.html', 'About'),
 		('pages/projects.html', 'Projects'),
 		('pages/team.html', 'Team'),
+		('pages/blank.html', 'Blank'),
 		('pages/contact.html', 'Contact'),
 )
 
