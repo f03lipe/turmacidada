@@ -5,6 +5,7 @@ Whoosh==2.4.1
 argparse==1.2.1
 beautifulsoup4==4.2.1
 boto==2.9.5
+cmsplugin-filer==0.9.5
 distribute==0.6.31
 dj-database-url==0.2.1
 dj-static==0.0.5
