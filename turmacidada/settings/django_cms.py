@@ -152,6 +152,8 @@ CMS_TEMPLATES = (
 
 import datetime
 
+BLOG_URL = 'http://turmacidadabrasil.tumblr.com'
+
 ########## CUSTOM CONTEXT
 custom_context = {
 	'address': 'Rua Gal. Canabarro, 552, sala 3, Campus 3. Maracanã, Rio de Janeiro ',
@@ -165,7 +167,7 @@ custom_context = {
 		'flickr': 'http://www.flickr.com/photos/turmacidada',
 		'rss': 'http://turmacidadabrasil.tumblr.com/rss',
 	},
-	'blog_url': 'http://turmacidadabrasil.tumblr.com',
+	'blog_url': BLOG_URL,
 	'FOOTER_LINKS': FOOTER_LINKS,
 	'TODAY': datetime.date.today()
 }

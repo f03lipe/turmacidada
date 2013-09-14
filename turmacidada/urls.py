@@ -15,7 +15,7 @@ urlpatterns = patterns('',
 	(r'^favicon\.ico$', RedirectView.as_view(url='/static/images/favicon.ico')),
 	(r'^robots\.txt$', RedirectView.as_view(url='/static/robots.txt')),
 	(r'^robots\.txt$', RedirectView.as_view(url='/static/robots.txt')),
-	(r'^blog', RedirectView.as_view(url='http://turmacidada.tumblr.com')),
+	(r'^blog', RedirectView.as_view(url=settings.BLOG_URL)),
 	(r'^osite', TemplateView.as_view(template_name="osite.html")),
 	
 
