@@ -41,7 +41,7 @@ try:
         if url.scheme == 'mysql':
             DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
 except:
-    print "Unexpected error:", exc_info()
+    print "Unexpected error setting the database:", exc_info()
 
 SOUTH_DATABASE_ADAPTERS = {
 	'default': 'south.db.postgresql_psycopg2'
