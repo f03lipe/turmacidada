@@ -40,7 +40,9 @@
 <body class="{{ bg.header_color }}">
 	<img onerror='this.style.display = "none"' src="{{ MEDIA_URL }}{{ bg.file }}" class="page-bg"></img>
 	
+	{% if UNDER_CONSTRUCTION %}
 	<div class="hide" onclick="$(this).fadeOut('slow')" id="under-const"><i class="icon-warning-sign"></i> Site em Construção <span>(clique para ocultar)</span></div>
+	{% endif %}
 	
 	<!-- header -->
 	<header>

@@ -3,6 +3,11 @@
 
 print "Executing configuration file django_cms.py"
 
+from os import environ
+
+# Helper lambda for gracefully degrading environmental variables:
+env = lambda e, d: environ[e] if environ.has_key(e) else d
+
 # basic django-cms only
 # DON'T ADD ANYTHING HERE!
 INSTALLED_APPS = (
@@ -169,7 +174,8 @@ custom_context = {
 	},
 	'blog_url': BLOG_URL,
 	'FOOTER_LINKS': FOOTER_LINKS,
-	'TODAY': datetime.date.today()
+	'TODAY': datetime.date.today(),
+	'UNDER_CONSTRUCTION': env('UNDER_CONSTRUCTION', True)
 }
 ########## END CUSTOM CONTEXT
 
