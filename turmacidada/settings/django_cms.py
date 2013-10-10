@@ -175,7 +175,7 @@ custom_context = {
 	'blog_url': BLOG_URL,
 	'FOOTER_LINKS': FOOTER_LINKS,
 	'TODAY': datetime.date.today(),
-	'UNDER_CONSTRUCTION': env('UNDER_CONSTRUCTION', True)
+	'UNDER_CONSTRUCTION': environ.get('UNDER_CONSTRUCTION') == 'True'
 }
 ########## END CUSTOM CONTEXT
 
