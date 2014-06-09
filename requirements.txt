@@ -21,9 +21,9 @@ django-htmlmin==0.6.2
 django-mptt==0.5.2
 django-polymorphic==0.5
 django-pylibmc==0.5.0
-django-sekizai==0.7
 django-storages==1.1.8
 django-tinymce==1.5.1
+django-sekizai==0.7
 django-toolbelt==0.0.1
 easy-thumbnails==1.2
 gunicorn==17.5
